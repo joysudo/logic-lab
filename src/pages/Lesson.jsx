@@ -1,4 +1,6 @@
 import { useParams } from 'wouter';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const lessonContent = {
   1: {
@@ -67,17 +69,38 @@ const lessonContent = {
   },
 };
 
+const slidesForLesson = (lesson) => [
+  { type: 'title', content: <h1>{lesson.title}</h1> },
+  { type: 'definition', content: <p>{lesson.definition}</p> },
+  { type: 'examples-bad', content: <p><strong>Bad Example:</strong> {lesson.examples.bad}</p> },
+  { type: 'examples-good', content: <p><strong>Good Example:</strong> {lesson.examples.good}</p> },
+];
+
 export default function Lesson() {
   const params = useParams();   // if  route is /lesson/:id, and the user visits /lesson/1, params.id will be '1'
   const lesson = lessonContent[params.id]; // shorthand for lessonContent[X], so we can append things like .examples.good
+  const slides = slidesForLesson(lesson);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const isFirstSlide = currentSlide === 0;
+  const isLastSlide = currentSlide === slides.length - 1;
+
+  const goPrev = () => {
+    if (!isFirstSlide) setCurrentSlide(currentSlide - 1);
+  };
+
+  const goNext = () => {
+    if (!isLastSlide) setCurrentSlide(currentSlide + 1);
+  };
+
   return (
-    <div>
-      <h1>{lesson.title}</h1>
-      <p>{lesson.definition}</p>
-      <h2>Examples</h2>
-      <p>Bad: {lesson.examples.bad}</p>
-      <p>Good: {lesson.examples.good}</p>
-      <a href="/">Back to Home</a>
+    <div className="slide-container">
+      <button onClick={goPrev} disabled={isFirstSlide} className="slide-navigation">Previous</button>
+      <div className="slide">
+        {slides[currentSlide].content}
+      </div>
+      <button onClick={goNext} disabled={isLastSlide}>Next</button>
+    {isLastSlide && <a href="/" className='slide-complete'>Complete</a>}
     </div>
   );
 }
