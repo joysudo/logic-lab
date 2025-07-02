@@ -98,9 +98,9 @@ export default function Lesson() {
       <button onClick={goPrev} disabled={isFirstSlide} className="slide-navigation">Previous</button>
       <div className="slide">
         {slides[currentSlide].content}
+        {isLastSlide && <a href="/" className='slide-complete'>Complete</a>}
       </div>
-      <button onClick={goNext} disabled={isLastSlide}>Next</button>
-    {isLastSlide && <a href="/" className='slide-complete'>Complete</a>}
+      <button onClick={goNext} disabled={isLastSlide} className="slide-navigation">Next</button>
     </div>
   );
 }
