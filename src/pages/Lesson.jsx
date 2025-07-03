@@ -94,12 +94,20 @@ export default function Lesson() {
 
   return (
     <div className="slide-container">
-      <button onClick={goPrev} disabled={isFirstSlide} className="slide-navigation previous-button">Previous</button>
+      <button onClick={goPrev} disabled={isFirstSlide} className="slide-navigation previous-button">
+        <svg viewBox="0 0 16 16" > 
+          <path d="M12 8a.5.5 180 01-.5.5H5.707L7.854 10.646a.5.5 180 11-.708.708l-3-3a.5.5 180 010-.708l3-3a.5.5 180 01.708.708L5.707 7.5H11.5A.5.5 180 0112 8"/> 
+        </svg>
+      </button>
       <div className="slide">
         {slides[currentSlide].content}
         {isLastSlide && <a href="/" className='slide-complete'>Complete</a>}
       </div>
-      <button onClick={goNext} disabled={isLastSlide} className="slide-navigation next-button">Next</button>
+      <button onClick={goNext} disabled={isLastSlide} className="slide-navigation next-button">
+        <svg viewBox="0 0 16 16">
+          <path d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"/>
+        </svg>
+      </button>
     </div>
   );
 }
