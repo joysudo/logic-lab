@@ -27,6 +27,7 @@ export default function Home() {
           {lessons.map(lesson => ( 
             <div key={lesson.id} className="lesson-card">
               <a href={`/lesson/${lesson.id}`} className="lesson-card-title">{lesson.title}</a>
+              <img src="src/images/tester-image.png" className="lesson-card-image" />
             </div>
           ))}
         </div>
