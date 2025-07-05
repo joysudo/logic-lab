@@ -2,6 +2,8 @@ import { React, useEffect } from 'react';
 import { Route, Switch, useLocation } from 'wouter';
 import Home from './pages/Home';
 import Lesson from './pages/Lesson';
+import About from './pages/About';
+import Progress from './pages/Progress';
 
 function App() {
   const [location] = useLocation();
@@ -17,6 +19,8 @@ function App() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/lesson/:id" component={Lesson} />
+      <Route path="/about" component={About} />
+      <Route path="/progress" component={Progress} />
     </Switch>
   );
 }

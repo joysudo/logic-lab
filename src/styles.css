@@ -1,7 +1,7 @@
 body {
     color: #06052d;
     font-family: 'Commissioner', sans-serif;
-    background-color: #334d9e;
+    background-color: #2B486F;
     margin: 2rem;
     /* align-items: center;
     justify-content: center; */
@@ -11,8 +11,19 @@ body.lesson-page-background {
     background-color: #f3f3ec !important;
 }
 
+/* NAVIGATION BAR */
 .placeholder-for-logo {
     color: white;
+}
+
+.top-navigation {
+    display: flex;
+    justify-content: space-between;
+}
+
+.top-navigation-links {
+    display: flex;
+    gap: 1rem;
 }
 
 /* HOMEPAGE */
