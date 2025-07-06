@@ -1,16 +1,25 @@
+import { React, useState } from 'react';
+
 export default function Home() {
     const lessons = [
-      { id: 1, title: "Straw Man" },
-      { id: 2, title: "False Dilemma" },
-      { id: 2, title: "Red Herring" },
-      { id: 3, title: "Ad Hominem" },
-      { id: 4, title: "Slippery Slope" },
-      { id: 5, title: "Appeal to Authority" },
-      { id: 6, title: "Hasty Generalization" },
-      { id: 7, title: "Post Hoc" },
-      { id: 8, title: "Circular Reasoning" }
+      { id: 1, title: "What's an Argument?" },
+      { id: 2, title: "Validity v. Soundness" },
+      { id: 3, title: "Deducing the Deductive" },
+      { id: 4, title: "Affirming the Consequent" },
+      { id: 5, title: "Denying the Antecedent" },
+      { id: 6, title: "The Undistributed Middle" },
+      { id: 7, title: "Ad Hominem" },
+      { id: 8, title: "Appeal to Emotion" }
     ];
   
+    const [imageErrors, setImageErrors] = useState({});
+    const handleImageError = (lessonId) => {
+      setImageErrors(prevErrors => ({
+        ...prevErrors, 
+        [lessonId]: true
+      }));
+    }
+
   return (
     <div>
       <div className="top-navigation">
@@ -27,7 +36,8 @@ export default function Home() {
           {lessons.map(lesson => ( 
             <div key={lesson.id} className="lesson-card">
               <a href={`/lesson/${lesson.id}`} className="lesson-card-title">{lesson.title}</a>
-              <img src="src/images/tester-image.png" className="lesson-card-image" />
+                {!imageErrors[lesson.id] ? (<img src={`/images/card${lesson.id}.png`} className="lesson-card-image" onError={() => handleImageError(lesson.id)}/>)
+                : (<p>joy felt too lazy to put an image here</p>)}
             </div>
           ))}
         </div>

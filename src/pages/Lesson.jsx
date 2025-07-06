@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 const lessonContent = {
   1: {
-    title: "Straw Man",
+    title: "What's an Argument?",
     definition: "Definition here...",
     examples: {
       bad: "Bad example...",
@@ -11,7 +11,7 @@ const lessonContent = {
     }
   },
   2: {
-    title: "False Dilemma",
+    title: "Validity v. Soundness",
     definition: "Definition here...",
     examples: {
       bad: "Bad example...",
@@ -19,7 +19,7 @@ const lessonContent = {
     }
   },
   3: {
-    title: "Red Herring",
+    title: "Deducing the Deductive",
     definition: "Definition here...",
     examples: {
       bad: "Bad example...",
@@ -27,7 +27,7 @@ const lessonContent = {
     }
   },
   4: {
-    title: "Ad Hominem",
+    title: "Affirming the Consequent",
     definition: "Definition here...",
     examples: {
       bad: "Bad example...",
@@ -35,7 +35,7 @@ const lessonContent = {
     }
   },
   5: {
-    title: "Slippery Slope",
+    title: "Denying the Antecedent",
     definition: "Definition here...",
     examples: {
       bad: "Bad example...",
@@ -43,7 +43,7 @@ const lessonContent = {
     }
   },
   6: {
-    title: "Appeal to Authority",
+    title: "The Undistributed Middle",
     definition: "Definition here...",
     examples: {
       bad: "Bad example...",
@@ -51,7 +51,7 @@ const lessonContent = {
     }
   },
   7: {
-    title: "Hasty Generalization",
+    title: "Add Hominem",
     definition: "Definition here...",
     examples: {
       bad: "Bad example...",
@@ -59,7 +59,7 @@ const lessonContent = {
     }
   },
   8: {
-    title: "Post Hoc",
+    title: "Appeal to Emotion",
     definition: "Definition here...",
     examples: {
       bad: "Bad example...",
