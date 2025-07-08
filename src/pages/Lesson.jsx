@@ -1,44 +1,11 @@
 import { useParams } from 'wouter';
 import { useState } from 'react';
-
-// going for a nested array approach--array stored alongside metadata in an object, those objects stored in one array
-const lessonContent = [
-  {
-    title: "Sample Lesson 1",
-    slides: [
-      [<Title text="Straw Man"/>, <BodyText text="this is some sample lesson 1 body text"/>],
-      [<RevealSlide text="reveal slide text"/>]
-    ]
-  }, {
-    title: "Sample Lesson 2",
-    slides: [
-      [<Title text="Red Herring"/>, <BodyText text="this is some sample lesson 2 body text"/>],
-      [<RevealSlide text="reveal slide text"/>]
-    ]
-  }, {
-    title: "Sample Lesson 3",
-    slides: [
-      [<Title text="False Dichotomy"/>, <BodyText text="this is some sample lesson 3 body text"/>],
-      [<RevealSlide text="reveal slide text"/>]
-    ]
-  },
-];
-
-function Title({ text }) {
-  return <h1>{text}</h1>;
-}
-
-function BodyText({ text }) {
-  return <p>{text}</p>;
-}
-
-function RevealSlide({ text }) {
-  return <h1>{text}</h1>;
-}
+import { Title, BodyText, RevealSlide } from '../LessonComponents.jsx';
+import lessonContent from '../LessonContent.jsx';
 
 export default function Lesson() {
-  const { id } = useParams(); 
-  const lessonIndex = parseInt(id, 10);
+  const { id } = useParams(); // takes lesson id from wouter and stores as string
+  const lessonIndex = parseInt(id, 10); // base 10
   const lesson = lessonContent[lessonIndex];
   const [currentSlide, setCurrentSlide] = useState(0);
 
