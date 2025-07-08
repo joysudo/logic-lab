@@ -172,3 +172,11 @@ a:visited {
     display: block; 
     text-align: center; 
 }
+
+.revealed-text {
+ background-color: rgb(125, 212, 202);
+ border-radius: 0.5rem;
+ padding: 0.5rem;
+ display: inline-block;
+ color: green !important;
+}
