@@ -5,7 +5,7 @@ import lessonContent from '../LessonContent.jsx';
 
 export default function Lesson() {
   const { id } = useParams(); // takes lesson id from wouter and stores as string
-  const lessonIndex = parseInt(id, 10); // base 10
+  const lessonIndex = parseInt(id, 10) - 1; // base 10
   const lesson = lessonContent[lessonIndex];
   const [currentSlide, setCurrentSlide] = useState(0);
 
