@@ -1,6 +1,5 @@
 import { useParams } from 'wouter';
 import { useState } from 'react';
-import { Title, BodyText, RevealSlide } from '../LessonComponents.jsx';
 import lessonContent from '../LessonContent.jsx';
 
 export default function Lesson() {
