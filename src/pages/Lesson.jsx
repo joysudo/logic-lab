@@ -1,88 +1,15 @@
 import { useParams } from 'wouter';
 import { useState } from 'react';
-
-const lessonContent = {
-  1: {
-    title: "What's an Argument?",
-    definition: "Definition here...",
-    examples: {
-      bad: "Bad example...",
-      good: "Good example..."
-    }
-  },
-  2: {
-    title: "Validity v. Soundness",
-    definition: "Definition here...",
-    examples: {
-      bad: "Bad example...",
-      good: "Good example..."
-    }
-  },
-  3: {
-    title: "Deducing the Deductive",
-    definition: "Definition here...",
-    examples: {
-      bad: "Bad example...",
-      good: "Good example..."
-    }
-  },
-  4: {
-    title: "Affirming the Consequent",
-    definition: "Definition here...",
-    examples: {
-      bad: "Bad example...",
-      good: "Good example..."
-    }
-  },
-  5: {
-    title: "Denying the Antecedent",
-    definition: "Definition here...",
-    examples: {
-      bad: "Bad example...",
-      good: "Good example..."
-    }
-  },
-  6: {
-    title: "The Undistributed Middle",
-    definition: "Definition here...",
-    examples: {
-      bad: "Bad example...",
-      good: "Good example..."
-    }
-  },
-  7: {
-    title: "Add Hominem",
-    definition: "Definition here...",
-    examples: {
-      bad: "Bad example...",
-      good: "Good example..."
-    }
-  },
-  8: {
-    title: "Appeal to Emotion",
-    definition: "Definition here...",
-    examples: {
-      bad: "Bad example...",
-      good: "Good example..."
-    }
-  },
-};
-
-const slidesForLesson = (lesson) => [
-  { type: 'title', content: <h1>{lesson.title}</h1> },
-  { type: 'definition', content: <p>{lesson.definition}</p> },
-  { type: 'examples-bad', content: <p><strong>Bad Example:</strong> {lesson.examples.bad}</p> },
-  { type: 'examples-good', content: <p><strong>Good Example:</strong> {lesson.examples.good}</p> },
-];
+import lessonContent from '../LessonContent.jsx';
 
 export default function Lesson() {
-  const params = useParams();   // if  route is /lesson/:id, and the user visits /lesson/1, params.id will be '1'
-  const lesson = lessonContent[params.id]; // shorthand for lessonContent[X], so we can append things like .examples.good
-  const slides = slidesForLesson(lesson);
+  const { id } = useParams(); // takes lesson id from wouter and stores as string
+  const lessonIndex = parseInt(id, 10) - 1; // base 10
+  const lesson = lessonContent[lessonIndex];
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const isFirstSlide = currentSlide === 0;
-  const isLastSlide = currentSlide === slides.length - 1;
+  const isLastSlide = currentSlide === lesson.slides.length - 1;
 
   const goPrev = () => {
     if (!isFirstSlide) setCurrentSlide(currentSlide - 1);
@@ -100,8 +27,10 @@ export default function Lesson() {
         </svg>
       </button>
       <div className="slide">
-        {slides[currentSlide].content}
-        {isLastSlide && <a href="/" className='slide-complete'>Complete</a>}
+        {lesson.slides[currentSlide].map((Component, i) => (
+          <div key={i}>{Component}</div>
+        ))}
+        {isLastSlide && <a href="/" className='slide-complete-button'>Complete</a>}
       </div>
       <button onClick={goNext} disabled={isLastSlide} className="slide-navigation next-button">
         <svg viewBox="0 0 16 16">

@@ -1,17 +1,7 @@
 import { React, useState } from 'react';
+import lessonContent from '../LessonContent.jsx';
 
 export default function Home() {
-    const lessons = [
-      { id: 1, title: "What's an Argument?" },
-      { id: 2, title: "Validity v. Soundness" },
-      { id: 3, title: "Deducing the Deductive" },
-      { id: 4, title: "Affirming the Consequent" },
-      { id: 5, title: "Denying the Antecedent" },
-      { id: 6, title: "The Undistributed Middle" },
-      { id: 7, title: "Ad Hominem" },
-      { id: 8, title: "Appeal to Emotion" }
-    ];
-  
     const [imageErrors, setImageErrors] = useState({});
     const handleImageError = (lessonId) => {
       setImageErrors(prevErrors => ({
@@ -33,11 +23,11 @@ export default function Home() {
       <div className="home-grid">
         <div className="lessons-column"> 
           {/* iterates through lessons, turning to jsx table of contents entries*/}
-          {lessons.map(lesson => ( 
-            <div key={lesson.id} className="lesson-card">
-              <a href={`/lesson/${lesson.id}`} className="lesson-card-title">{lesson.title}</a>
-                {!imageErrors[lesson.id] ? (<img src={`/images/card${lesson.id}.png`} className="lesson-card-image" onError={() => handleImageError(lesson.id)}/>)
-                : (<p>joy felt too lazy to put an image here</p>)}
+          {lessonContent.map((lesson, index) => ( 
+            <div key={index} className="lesson-card">
+              <a href={`/lesson/${index + 1}`} className="lesson-card-title">{lesson.title}</a>
+              {!imageErrors[index + 1] ? (<img src={`/images/card${index + 1}.png`} className="lesson-card-image" onError={() => handleImageError(index + 1)}/>)
+              : (<p>joy felt too lazy to put an image here</p>)}
             </div>
           ))}
         </div>
