@@ -30,7 +30,7 @@ export default function Lesson() {
         {lesson.slides[currentSlide].map((Component, i) => (
           <div key={i}>{Component}</div>
         ))}
-        {isLastSlide && <a href="/" className='slide-complete'>Complete</a>}
+        {isLastSlide && <a href="/" className='slide-complete-button'>Complete</a>}
       </div>
       <button onClick={goNext} disabled={isLastSlide} className="slide-navigation next-button">
         <svg viewBox="0 0 16 16">

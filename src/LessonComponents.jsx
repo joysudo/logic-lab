@@ -1,5 +1,9 @@
-export function Title({ text }) {
+export function Heading({ text }) {
   return <h1>{text}</h1>;
+}
+
+export function Subheading({ text }) {
+  return <h2>{text}</h2>;
 }
 
 export function BodyText({ text }) {
@@ -12,8 +16,8 @@ export function Reveal({ before, after }) {
   return (
     <>
       <p>{before}</p>
-      {!revealed && <button onClick={() => setRevealed(true)}>Reveal</button>}
-      {revealed && <p className="revealed-text">{after}</p>}
+      {!revealed && <button onClick={() => setRevealed(true)} className="reveal-button">Reveal</button>}
+      {revealed && <p className="reveal-text">{after}</p>}
     </>
   );
 }
@@ -22,8 +26,8 @@ export function Question ({type, question, answers, correct}) {
   const [selectedOption, setSelectedOption] = useState("unselected");
   return(
     <>
-      <p>{question}</p>
-      <div className="options">
+      <p><b>{question}</b></p>
+      <div className="question-options">
         {answers.map(([answer, explanation], index) => (
           <label>
             <input type={type} checked={selectedOption === index} onChange={() => setSelectedOption(index)}/>
