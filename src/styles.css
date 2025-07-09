@@ -174,9 +174,25 @@ a:visited {
 }
 
 .revealed-text {
- background-color: rgb(125, 212, 202);
- border-radius: 0.5rem;
- padding: 0.5rem;
- display: inline-block;
- color: green !important;
+    background-color: rgb(125, 212, 202);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    display: inline-block;
+    color: green;
+}
+
+.correct-answer {
+    background-color: rgb(125, 212, 202);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    display: inline-block;
+    color: green;
+
+}
+.incorrect-answer {
+    background-color: rgb(212, 125, 141);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    display: inline-block;
+    color: maroon;
 }
