@@ -1,10 +1,12 @@
 import { useParams } from 'wouter';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import React from 'react';
+import { cloneElement } from 'react';
 import lessonContent from '../LessonContent.jsx';
 
 export default function Lesson() {
   const { id } = useParams(); // takes lesson id from wouter and stores as string
-  const lessonIndex = parseInt(id, 10) - 1; // base 10
+  const lessonIndex = parseInt(id, 10) - 1; // base 10, adjust for indexing at 1 tho
   const lesson = lessonContent[lessonIndex];
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -19,6 +21,17 @@ export default function Lesson() {
     if (!isLastSlide) setCurrentSlide(currentSlide + 1);
   };
 
+  // defining the function; gonna make copies of the components and pass this function to each component that needs it
+  const [completedItems, setCompletedItems] = useState([]);
+  const logCompletion = (key) => {
+    setCompletedItems((prev) => prev.includes(key) ? prev : [...prev, key]);
+  };
+  const isSlideComplete = completedItems.length === lesson.slides[currentSlide].filter((Component) => Component.type?.name === "Question" || Component.type?.name === "Reveal").length;
+
+  useEffect(() => {
+    setCompletedItems([]);
+  }, [currentSlide]);
+
   return (
     <div className="slide-container">
       <button onClick={goPrev} disabled={isFirstSlide} className="slide-navigation previous-button">
@@ -28,11 +41,13 @@ export default function Lesson() {
       </button>
       <div className="slide">
         {lesson.slides[currentSlide].map((Component, i) => (
-          <div key={i}>{Component}</div>
+          <div key={i}>
+            {(Component.type?.name === "Question" || Component.type?.name === "Reveal") ? React.cloneElement(Component, {onComplete: () => logCompletion(i)}) : Component}
+          </div>
         ))}
         {isLastSlide && <a href="/" className='slide-complete-button'>Complete</a>}
       </div>
-      <button onClick={goNext} disabled={isLastSlide} className="slide-navigation next-button">
+      <button onClick={goNext} disabled={isLastSlide || !isSlideComplete} className="slide-navigation next-button">
         <svg viewBox="0 0 16 16">
           <path d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"/>
         </svg>

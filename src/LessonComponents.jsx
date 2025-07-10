@@ -11,18 +11,18 @@ export function BodyText({ text }) {
 }
 
 import { useState } from 'react';
-export function Reveal({ before, after }) {
+export function Reveal({ before, after, onComplete }) {
   const [revealed, setRevealed] = useState(false);
   return (
     <>
       <p>{before}</p>
-      {!revealed && <button onClick={() => setRevealed(true)} className="reveal-button">Reveal</button>}
+      {!revealed && <button onClick={() => {setRevealed(true); onComplete();}} className="reveal-button">Reveal</button>}
       {revealed && <p className="reveal-text">{after}</p>}
     </>
   );
 }
 
-export function Question ({type, question, answers, correct}) {
+export function Question ({type, question, answers, correct, onComplete}) {
   const [selectedOption, setSelectedOption] = useState("unselected");
   return(
     <>
@@ -30,7 +30,9 @@ export function Question ({type, question, answers, correct}) {
       <div className="question-options">
         {answers.map(([answer, explanation], index) => (
           <label>
-            <input type={type} checked={selectedOption === index} onChange={() => setSelectedOption(index)}/>
+            <input type={type} checked={selectedOption === index} 
+              onChange={() => {setSelectedOption(index); if (selectedOption === "unselected") onComplete();}}
+            />
             {answer}
           </label>
         ))}
