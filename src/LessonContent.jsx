@@ -3,6 +3,7 @@ import { Heading, Subheading, BodyText, Reveal, Question } from './LessonCompone
 const lessonContent = [
   {
     title: "Sample Lesson 1",
+    unit: 1,
     slides: [
       [
         <Heading text="What Is an Argument? (And No, It’s Not a Fight)"/>,
@@ -130,62 +131,37 @@ const lessonContent = [
     ]
   }, {
     title: "Sample Lesson 2",
+    unit: 1,
     slides: [
       [<Heading text="Red Herring"/>, <BodyText text="this is some sample lesson 2 body text"/>],
       [<Reveal before="reveal slide text" after="this is after the reveal"/>]
     ]
   }, {
     title: "Sample Lesson 3",
-    slides: [
-      [<Heading text="False Dichotomy"/>, <BodyText text="this is some sample lesson 3 body text"/>],
-      [<Reveal before="reveal slide text" after="this is after the reveal"/>]
-    ]
-  }, {
-    title: "Sample Lesson 2",
-    slides: [
-      [<Heading text="Red Herring"/>, <BodyText text="this is some sample lesson 2 body text"/>],
-      [<Reveal before="reveal slide text" after="this is after the reveal"/>]
-    ]
-  }, {
-    title: "Sample Lesson 3",
-    slides: [
-      [<Heading text="False Dichotomy"/>, <BodyText text="this is some sample lesson 3 body text"/>],
-      [<Reveal before="reveal slide text" after="this is after the reveal"/>]
-    ]
-  }, {
-    title: "Sample Lesson 2",
-    slides: [
-      [<Heading text="Red Herring"/>, <BodyText text="this is some sample lesson 2 body text"/>],
-      [<Reveal before="reveal slide text" after="this is after the reveal"/>]
-    ]
-  }, {
-    title: "Sample Lesson 3",
+    unit: 2,
     slides: [
       [<Heading text="False Dichotomy"/>, <BodyText text="this is some sample lesson 3 body text"/>],
       [<Reveal before="reveal slide text" after="this is after the reveal"/>]
     ]
   }, {
     title: "Sample Lesson 4",
+    unit: 2,
     slides: [
       [<Heading text="Red Herring"/>, <BodyText text="this is some sample lesson 2 body text"/>],
       [<Reveal before="reveal slide text" after="this is after the reveal"/>]
     ]
   }, {
     title: "Sample Lesson 5",
+    unit: 2,
     slides: [
       [<Heading text="False Dichotomy"/>, <BodyText text="this is some sample lesson 3 body text"/>],
       [<Reveal before="reveal slide text" after="this is after the reveal"/>]
     ]
   }, {
     title: "Sample Lesson 6",
+    unit: 3,
     slides: [
       [<Heading text="Red Herring"/>, <BodyText text="this is some sample lesson 2 body text"/>],
-      [<Reveal before="reveal slide text" after="this is after the reveal"/>]
-    ]
-  }, {
-    title: "Sample Lesson 3",
-    slides: [
-      [<Heading text="False Dichotomy"/>, <BodyText text="this is some sample lesson 3 body text"/>],
       [<Reveal before="reveal slide text" after="this is after the reveal"/>]
     ]
   }

@@ -1,7 +1,7 @@
 body {
     color: #06052d;
     font-family: 'Commissioner', sans-serif;
-    background-color: #2B486F;
+    background: linear-gradient(135deg, hsl(222, 47%, 21%) 0%, hsl(222, 47%, 31%) 50%, hsl(222, 47%, 11%) 100%);
     margin: 2rem;
 }
 
@@ -169,17 +169,17 @@ body.lesson-page-background {
 }
 
 /* "topics" means right column; maybe rebrand to "units"-card" */
-.topics-column {
+
+.lesson-topic-pair {
     display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    margin: 0 0;
-    padding: 0 2rem;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 2rem;
 }
 
 .topics-card {
     background: #e8e8db;
-    border-radius: 2rem; 
+    border-radius: 1.75rem; 
     padding: 1rem;
     width: 100%;
     display: flex;
