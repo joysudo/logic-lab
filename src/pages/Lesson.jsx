@@ -32,6 +32,23 @@ export default function Lesson() {
     setCompletedItems([]);
   }, [currentSlide]);
 
+  function updateCompletedLessonIndex(currentIndex) {
+    if (localStorage.getItem("completedLessonIndex") === null) {
+      localStorage.setItem("completedLessonIndex", "0");
+    }
+    console.log("THIS IS BEFORE THE CHECK AND .SETITEM")
+    console.log("completedLessonIndex:", localStorage.getItem("completedLessonIndex"))
+    console.log("currentIndex:", currentIndex)
+    console.log("is (currentIndex + 1) >= completedLessonIndex?", ((currentIndex + 1) >= parseInt(localStorage.getItem("completedLessonIndex") || "0", 10)))
+    if ((currentIndex + 1) >= parseInt(localStorage.getItem("completedLessonIndex") || "0", 10)) {
+      localStorage.setItem("completedLessonIndex", (currentIndex + 1).toString());
+    }
+    console.log("THIS IS AFTER THE CHECK AND .SETITEM")
+    console.log("completedLessonIndex:", localStorage.getItem("completedLessonIndex"))
+    console.log("currentIndex:", currentIndex)
+    console.log("is (currentIndex + 1) >= completedLessonIndex?", ((currentIndex + 1) >= parseInt(localStorage.getItem("completedLessonIndex") || "0", 10)))
+  }
+
   return (
     <div className="slide-container">
       <button onClick={goPrev} disabled={isFirstSlide} className="slide-navigation previous-button">
@@ -45,7 +62,10 @@ export default function Lesson() {
             {(Component.type?.name === "Question" || Component.type?.name === "Reveal") ? React.cloneElement(Component, {onComplete: () => logCompletion(i)}) : Component}
           </div>
         ))}
-        {isLastSlide && <a href="/" className='slide-complete-button'>Complete</a>}
+        {isLastSlide && <a href="/" className='slide-complete-button' onClick={() => {
+          updateCompletedLessonIndex(lessonIndex);
+          window.location.href = "/";
+        }}>Complete</a>}
       </div>
       <button onClick={goNext} disabled={isLastSlide || !isSlideComplete} className="slide-navigation next-button">
         <svg viewBox="0 0 16 16">

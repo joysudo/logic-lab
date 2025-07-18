@@ -140,7 +140,55 @@ const lessonContent = [
       [<Heading text="False Dichotomy"/>, <BodyText text="this is some sample lesson 3 body text"/>],
       [<Reveal before="reveal slide text" after="this is after the reveal"/>]
     ]
-  },
+  }, {
+    title: "Sample Lesson 2",
+    slides: [
+      [<Heading text="Red Herring"/>, <BodyText text="this is some sample lesson 2 body text"/>],
+      [<Reveal before="reveal slide text" after="this is after the reveal"/>]
+    ]
+  }, {
+    title: "Sample Lesson 3",
+    slides: [
+      [<Heading text="False Dichotomy"/>, <BodyText text="this is some sample lesson 3 body text"/>],
+      [<Reveal before="reveal slide text" after="this is after the reveal"/>]
+    ]
+  }, {
+    title: "Sample Lesson 2",
+    slides: [
+      [<Heading text="Red Herring"/>, <BodyText text="this is some sample lesson 2 body text"/>],
+      [<Reveal before="reveal slide text" after="this is after the reveal"/>]
+    ]
+  }, {
+    title: "Sample Lesson 3",
+    slides: [
+      [<Heading text="False Dichotomy"/>, <BodyText text="this is some sample lesson 3 body text"/>],
+      [<Reveal before="reveal slide text" after="this is after the reveal"/>]
+    ]
+  }, {
+    title: "Sample Lesson 4",
+    slides: [
+      [<Heading text="Red Herring"/>, <BodyText text="this is some sample lesson 2 body text"/>],
+      [<Reveal before="reveal slide text" after="this is after the reveal"/>]
+    ]
+  }, {
+    title: "Sample Lesson 5",
+    slides: [
+      [<Heading text="False Dichotomy"/>, <BodyText text="this is some sample lesson 3 body text"/>],
+      [<Reveal before="reveal slide text" after="this is after the reveal"/>]
+    ]
+  }, {
+    title: "Sample Lesson 6",
+    slides: [
+      [<Heading text="Red Herring"/>, <BodyText text="this is some sample lesson 2 body text"/>],
+      [<Reveal before="reveal slide text" after="this is after the reveal"/>]
+    ]
+  }, {
+    title: "Sample Lesson 3",
+    slides: [
+      [<Heading text="False Dichotomy"/>, <BodyText text="this is some sample lesson 3 body text"/>],
+      [<Reveal before="reveal slide text" after="this is after the reveal"/>]
+    ]
+  }
 ];
 
 export default lessonContent;
