@@ -25,7 +25,7 @@ export default function Home() {
           {/* iterates through lessons, turning to jsx table of contents entries*/}
           {lessonContent.map((lesson, index) => ( 
             // parseInt(localStorage.getItem("completedLessonIndex") || "0", 10)
-            <div key={index} className="lesson-card">
+            <div key={index} className="lesson-card" style={index === parseInt(localStorage.getItem("completedLessonIndex") || "0", 10) ? {backgroundColor:'#738175'} : undefined}>
               {index > parseInt(localStorage.getItem("completedLessonIndex") || "0", 10) && 
                 <div className="lesson-card-locked">
                   <img src={`/images/sample-card-back.png`}></img>

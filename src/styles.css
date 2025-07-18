@@ -129,17 +129,17 @@ body.lesson-page-background {
     background-color: #091715;
 }
 
-.lesson-card-play-title {
-    text-decoration: none;
-    color: #738edf;
-    font-weight: 600;
-    font-size: 1.9rem;
-    line-height: 1.7rem;
-}
-
 .lesson-card-play {
     justify-content: center;
     align-items: center;
+}
+
+.lesson-card-play-title {
+    text-decoration: none;
+    color: #193D3A;
+    font-weight: 600;
+    font-size: 1.9rem;
+    line-height: 1.7rem;
 }
 
 .lesson-card-play-button {
@@ -150,7 +150,7 @@ body.lesson-page-background {
     width: 5rem;
     height: 5rem;
     border-radius: 50%;
-    background-color: #738edf;
+    background-color: #193D3A;
     position: relative;
     text-decoration: none;
 }
