@@ -20,7 +20,7 @@ export default function Lesson() {
     if (!isLastSlide) setCurrentSlide(currentSlide + 1);
   };
 
-  // defining the function; gonna make copies of the components and pass this function to each component that needs it
+  // makes copies of the components and passes this function to each component that needs it
   const [completedItems, setCompletedItems] = useState([]);
   const logCompletion = (key) => {
     setCompletedItems((prev) => prev.includes(key) ? prev : [...prev, key]);
@@ -35,17 +35,9 @@ export default function Lesson() {
     if (localStorage.getItem("completedLessonIndex") === null) {
       localStorage.setItem("completedLessonIndex", "0");
     }
-    console.log("THIS IS BEFORE THE CHECK AND .SETITEM")
-    console.log("completedLessonIndex:", localStorage.getItem("completedLessonIndex"))
-    console.log("currentIndex:", currentIndex)
-    console.log("is (currentIndex + 1) >= completedLessonIndex?", ((currentIndex + 1) >= parseInt(localStorage.getItem("completedLessonIndex") || "0", 10)))
     if ((currentIndex + 1) >= parseInt(localStorage.getItem("completedLessonIndex") || "0", 10)) {
       localStorage.setItem("completedLessonIndex", (currentIndex + 1).toString());
     }
-    console.log("THIS IS AFTER THE CHECK AND .SETITEM")
-    console.log("completedLessonIndex:", localStorage.getItem("completedLessonIndex"))
-    console.log("currentIndex:", currentIndex)
-    console.log("is (currentIndex + 1) >= completedLessonIndex?", ((currentIndex + 1) >= parseInt(localStorage.getItem("completedLessonIndex") || "0", 10)))
   }
 
   return (

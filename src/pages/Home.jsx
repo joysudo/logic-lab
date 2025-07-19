@@ -24,7 +24,6 @@ export default function Home() {
         </div>
       </div>
       <div className="lessons-column"> 
-        {/* iterates through lessons, turning to jsx table of contents entries*/}
         {lessonContent.map((lesson, index) => {
           const isFirstLessonInUnit = lesson.unit !== currentUnitId;
           if (isFirstLessonInUnit) {currentUnitId = lesson.unit};
@@ -45,7 +44,7 @@ export default function Home() {
                   }
                   {index < completedLessonIndex && 
                     <div className="lesson-card-unlocked">
-                      <a href={`/lesson/${index + 1}`} className="lesson-card-title">{lesson.title}</a>
+                      <a href={`/lesson/${index + 1}`} className="lesson-card-unlocked-title">{lesson.title}</a>
                       {!imageErrors[index + 1] ? (<img src={`/images/card${index + 1}.png`} className="lesson-card-image" onError={() => handleImageError(index + 1)}/>)
                       : (<p>joy felt too lazy to put an image here</p>)}
                     </div>
