@@ -3,7 +3,7 @@ import { Route, Switch, useLocation } from 'wouter';
 import Home from './pages/Home';
 import Lesson from './pages/Lesson';
 import About from './pages/About';
-import Progress from './pages/Progress';
+import Deck from './pages/Deck';
 
 function App() {
   const [location] = useLocation();
@@ -20,7 +20,7 @@ function App() {
       <Route path="/" component={Home} />
       <Route path="/lesson/:id" component={Lesson} />
       <Route path="/about" component={About} />
-      <Route path="/progress" component={Progress} />
+      <Route path="/deck" component={Deck} />
     </Switch>
   );
 }
