@@ -1,8 +1,7 @@
 import { useParams } from 'wouter';
 import { useState, useEffect } from 'react';
 import React from 'react';
-import { cloneElement } from 'react';
-import lessonContent from '../LessonContent.jsx';
+import { lessonContent } from '../LessonContent.jsx';
 
 export default function Lesson() {
   const { id } = useParams(); // takes lesson id from wouter and stores as string

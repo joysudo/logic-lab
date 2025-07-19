@@ -1,4 +1,6 @@
-export default function About() {
+import { lessonContent } from '../LessonContent.jsx';
+
+export default function Progress() {
     return (
         <>
             <div className="top-navigation">
@@ -9,7 +11,10 @@ export default function About() {
                     <a href={`/about`}>About</a>
                 </div>
             </div>
-            <h1>This is the About page.</h1>
+            <p>This is the Deck page.</p>
+            <div className="deck-progress-border">
+                <div className="deck-progress-interior" style={{width: `${(parseInt(localStorage.getItem("completedLessonIndex") || "0", 10))*100/(lessonContent.length)}%`}}></div>
+            </div>
         </>
     );
 }
