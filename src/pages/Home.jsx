@@ -34,7 +34,7 @@ export default function Home() {
           const isFirstLessonInUnit = lesson.unit !== currentUnitId;
           if (isFirstLessonInUnit) {currentUnitId = lesson.unit};
             return (
-              <div className="lesson-topic-pair">
+              <div className="lesson-unit-pair">
                 <div key={index} className="lesson-card" style={index === completedLessonIndex ? {backgroundColor:'#738175'} : undefined}>
                   {index > completedLessonIndex && 
                     <div className="lesson-card-locked">
@@ -57,13 +57,22 @@ export default function Home() {
                   }
                 </div>
                 {(isFirstLessonInUnit) && (
-                  <div className="topics-card">
-                    <h3>{units.find(u => u.id === lesson.unit)?.name}</h3>
-                    <p>{units.find(u => u.id === lesson.unit)?.description}</p>
+                  <div className="unit-info">
+                    <div className="unit-card">
+                      <h3>{units.find(u => u.id === lesson.unit)?.name}</h3>
+                      <p>{units.find(u => u.id === lesson.unit)?.description}</p>
+                    </div>
+                    <div className="unit-progress-border">
+                      <div className="unit-progress-interior" style={{width: lessonContent.findIndex(obj => obj.unit === currentUnitId) > completedLessonIndex ? '0%'
+                          : `${(completedLessonIndex - lessonContent.findIndex(obj => obj.unit === currentUnitId))/(lessonContent.filter(obj => obj.unit === currentUnitId).length)*100}%`
+                      }}></div>
+                    </div>
                   </div>
                 )}
               </div>)
-        })}
+            }
+          )
+        }
       </div>
     </div>
   );
