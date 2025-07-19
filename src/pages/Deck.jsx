@@ -1,4 +1,4 @@
-import lessonContent from '../LessonContent.jsx';
+import { lessonContent } from '../LessonContent.jsx';
 
 export default function Progress() {
     return (

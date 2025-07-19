@@ -1,5 +1,11 @@
 import { Heading, Subheading, BodyText, Reveal, Question } from './LessonComponents.jsx';
 
+const unitDescription = [
+  {id: 1, name: "Intro to Logic & Argument", description: "This unit teaches you how to spot and understand arguments. You'll learn that arguments have reasons (premises) that lead to a main point (conclusion), and how to tell if an argument is built well (valid) and makes sense in the real world (sound). You'll also discover different types of arguments, like those that try to prove something for sure (deductive) and those that just try to show it's likely (inductive)."},
+  {id: 2, name: "Formal Fallacies", description: "In this unit, you'll learn about mistakes in the structure of an argument. These mistakes make an argument's conclusion not necessarily follow from its premises, even if the premises are true. You'll explore common errors like affirming the consequent, denying the antecedent, and the undistributed middle."},
+  {id: 3, name: "Informal Fallacies I - Fallacies of Relevance", description: "This unit focuses on arguments that try to trick you by bringing up information that doesn't actually relate to the main point. You'll learn about ad hominem attacks, trying to win by twisting someone's words, and changing the subject entirely."},
+]
+
 const lessonContent = [
   {
     title: "Sample Lesson 1",
@@ -167,4 +173,4 @@ const lessonContent = [
   }
 ];
 
-export default lessonContent;
+export {unitDescription, lessonContent};
