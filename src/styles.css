@@ -370,21 +370,17 @@ html.lesson-page-background {
     text-align: center;
     color: white;
     margin: 6rem auto;
+    opacity: 0;
+    animation: fadeIn 0.4s ease forwards;
 }
 
 .deck-default-description-panel h1 {
     font-size: 2rem;
 }
 
-.deck-default-description-panel {
-    opacity: 0;
-    animation: fadeIn 0.4s ease forwards;
-}
-
 .deck-card-wrapper {
     margin-top: auto;
     display: flex;
-    /* width: 100%; */
     justify-content: center;
     margin-left: auto;
     margin-right: auto;

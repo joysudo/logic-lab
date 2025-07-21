@@ -1,9 +1,8 @@
-import React, { useRef, useState } from 'react';
+import { useState } from 'react';
 import { lessonContent } from '../LessonContent.jsx';
 
 export default function Deck() {
   const [activeCard, setActiveCard] = useState(null);
-  const [transitioning, setTransitioning] = useState(false);
   
   const handleCardClick = (index) => {
     const card = document.getElementById(`card-${index}`);
@@ -11,12 +10,9 @@ export default function Deck() {
     if (activeCard === index) {
       if (card) {
         const rect = card.getBoundingClientRect();
-        // resert everything
-        // card.style.transition = "none";
+        // reset everything
         card.style.transform = "translate(0, 0) rotateY(0)";
         void card.offsetWidth;
-        // card.style.transition = "transform 0.6s ease";
-        // card.style.transform = "";
       }
       setTimeout(() => {
         setActiveCard(null);
@@ -32,7 +28,6 @@ export default function Deck() {
         prevCard.style.transform = "";
       }
       setTimeout(()=> {
-        // setActiveCard(null);
         requestAnimationFrame(() => activateCard(index));
       }, 300);
     } else {
@@ -87,7 +82,7 @@ export default function Deck() {
         <div className="deck-card-wrapper"
           style={{paddingRight: `${parseInt(localStorage.getItem("completedLessonIndex") || "0", 10)*3}rem`}}
         >
-          {lessonContent.slice(0, parseInt(localStorage.getItem("completedLessonIndex") || "0", 10)).map((card, index) => (
+          {lessonContent.slice(2, parseInt(localStorage.getItem("completedLessonIndex") || "0", 10)).map((card, index) => ( // remember to change this index if the number of intro lessons are changed
               <div 
                 key={index} 
                 id={`card-${index}`}
