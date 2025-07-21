@@ -1,14 +1,17 @@
+html {
+    background: linear-gradient(135deg, hsl(222, 47%, 21%) 0%, hsl(222, 47%, 31%) 50%, hsl(222, 47%, 11%) 100%);
+    min-height: 100vh;
+}
+
 body {
     color: #06052d;
     font-family: 'Commissioner', sans-serif;
-    background: linear-gradient(135deg, hsl(222, 47%, 21%) 0%, hsl(222, 47%, 31%) 50%, hsl(222, 47%, 11%) 100%);
     margin: 2rem;
     margin-left: 5%;
     margin-right: 5%;
-    min-height: 100dvh;
 }
 
-body.lesson-page-background {
+html.lesson-page-background {
     background: #f3f3ec !important;
 }
 
@@ -88,10 +91,6 @@ body.lesson-page-background {
     align-items: center;
 }
 
-.lesson-card-unlocked a {
-    display: inline-block;
-}
-
 .lesson-card-unlocked img {
     max-height: 70%;
     object-fit: contain;
@@ -100,6 +99,7 @@ body.lesson-page-background {
 }
 
 .lesson-card-unlocked-title {
+    display: inline-block;
     text-decoration: none;
     color: #738edf;
     font-weight: 600;
@@ -217,28 +217,6 @@ body.lesson-page-background {
     animation: fillProgressBar 1.5s ease-out forwards;
 }
 
-/* DECK PAGE */
-.deck-progress-border {
-    width: 100%;
-    height: 1.5rem;
-    border-radius: 1rem;
-    overflow: hidden;
-    background-color: #f3f3ec;
-    border: 0.25rem solid #f3f3ec;
-}
-
-.deck-progress-interior {
-    height: 100%;
-    background-color: #1f4242;
-    border-radius: 0.75rem;
-    transform: translateX(-100%);
-    animation: fillProgressBar 1.5s ease-out forwards;
-}
-
-@keyframes fillProgressBar {
-    from {transform: translateX(-100%);}
-    to {transform: translateX(0);}
-}
 
 /* lesson page */
 .slide-container {
@@ -348,3 +326,189 @@ body.lesson-page-background {
     display: inline-block;
     color: maroon;
 }
+
+/* DECK PAGE */
+.deck-progress-border {
+    margin: 3rem 0rem 0rem 0rem;
+    width: 100%;
+    height: 1.5rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    background-color: #f3f3ec;
+    border: 0.25rem solid #f3f3ec;
+}
+
+.deck-progress-interior {
+    height: 100%;
+    background-color: #1f4242;
+    border-radius: 0.75rem;
+    transform: translateX(-100%);
+    animation: fillProgressBar 1.5s ease-out forwards;
+}
+
+@keyframes fillProgressBar {
+    from {transform: translateX(-100%);}
+    to {transform: translateX(0);}
+}
+
+.deck-page p {
+    color: white;
+    text-align: center;
+}
+
+.deck-card-container {
+    width: 90vw;
+    height: 72vh; /* this is not responsive  but my brain hurts so i'm going to wait until tomorrow to put everything in terms of vh*/
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.deck-default-description-panel {
+    align-self: flex-start;
+    text-align: center;
+    color: white;
+    margin: 6rem auto;
+    opacity: 0;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+.deck-default-description-panel h1 {
+    font-size: 2rem;
+}
+
+.deck-card-wrapper {
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    left: 50%; 
+    transform: translateX(-50%);
+}
+
+.deck-card {
+    background: #e8e8db;
+    border-radius: 1.75rem; 
+    min-width: 10rem;
+    min-height: 15rem;
+    max-width: 12rem;
+    max-height: 18rem;
+    aspect-ratio: 2/3;
+    padding: 1rem;
+    position: absolute;
+    display: flex;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1);
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transition: all 0.4s ease;
+    transform: translate(0, 0) scale(1);
+    cursor: pointer;
+    bottom: 0;
+}
+
+
+.deck-card:hover:not(.deck-card-active) {
+    transform: translateY(-5rem);
+}
+
+
+.deck-card-front, .deck-card-back {
+    position: absolute;
+    display: flex;
+    max-width: 100%;
+    max-height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    padding: 1rem;
+}
+
+.deck-card-front {
+    transform: rotateY(0deg);
+}
+
+.deck-card-back {
+    transform: rotateY(180deg);
+}
+
+.deck-card-front img {
+    max-width: 70%;
+    max-height: 70%;
+    object-fit: contain;
+    position: relative;
+    display: block;
+}
+
+.deck-card-front h3 {
+    max-width: 100%;
+    display: inline-block;
+    text-decoration: none;
+    color: #738edf;
+    font-weight: 600;
+    font-size: 1.7rem;
+    line-height: 1.7rem;
+    margin: 0.5rem;
+}
+
+.deck-card-back img {
+    max-width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.deck-card.deck-card-active {
+    position: absolute;
+    transition: transform all 0.4s ease;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+.deck-card-description-panel {
+    position: absolute;
+    width: 50%;
+    left: 30%;
+    top: 20%;
+    padding: 1rem;
+    color: white;
+    border-radius: 1rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.deck-card-description-panel.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.deck-card-description-panel p {
+    text-align: left;
+}
+
+.deck-card-description-panel h2 {
+    text-align: left;
+    font-size: 2rem;
+}
+
+.deck-card-description {
+    opacity: 0;
+    animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
