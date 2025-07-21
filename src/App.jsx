@@ -9,9 +9,9 @@ function App() {
   const [location] = useLocation();
   useEffect( () => {
       if (location.startsWith('/lesson')) {
-        document.body.classList.add('lesson-page-background');
+        document.documentElement.classList.add('lesson-page-background');
       } else {
-        document.body.classList.remove('lesson-page-background');
+        document.documentElement.classList.remove('lesson-page-background');
       }
   }, [location]);
 
