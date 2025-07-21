@@ -351,14 +351,6 @@ html.lesson-page-background {
     to {transform: translateX(0);}
 }
 
-/* .deck-page {
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
-    left: 0;
-    right: 0;
-} */
-
 .deck-page p {
     color: white;
     text-align: center;
@@ -368,24 +360,39 @@ html.lesson-page-background {
     width: 90vw;
     height: 72vh; /* this is not responsive  but my brain hurts so i'm going to wait until tomorrow to put everything in terms of vh*/
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
+}
+
+.deck-default-description-panel {
+    align-self: flex-start;
+    text-align: center;
+    color: white;
+    margin: 6rem auto;
+}
+
+.deck-default-description-panel h1 {
+    font-size: 2rem;
+}
+
+.deck-default-description-panel {
+    opacity: 0;
+    animation: fadeIn 0.4s ease forwards;
 }
 
 .deck-card-wrapper {
-    /* margin-top: auto; */
-    position: absolute;
+    margin-top: auto;
     display: flex;
     /* width: 100%; */
     justify-content: center;
-    align-items: flex-end;
     margin-left: auto;
     margin-right: auto;
+    left: 50%; 
+    transform: translateX(-50%);
 }
 
 .deck-card {
-    /* margin: -2rem; */
     background: #e8e8db;
     border-radius: 1.75rem; 
     min-width: 10rem;

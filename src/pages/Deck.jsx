@@ -20,7 +20,7 @@ export default function Deck() {
       }
       setTimeout(() => {
         setActiveCard(null);
-      }, 600)
+      }, 300)
       return;
     }
     // cases where another card is active
@@ -32,9 +32,9 @@ export default function Deck() {
         prevCard.style.transform = "";
       }
       setTimeout(()=> {
-        setActiveCard(null);
+        // setActiveCard(null);
         requestAnimationFrame(() => activateCard(index));
-      }, 600);
+      }, 300);
     } else {
       activateCard(index); 
     }
@@ -77,9 +77,17 @@ export default function Deck() {
           <a href={`/about`}>About</a>
         </div>
       </div>
-      <div className="deck-card-container" style={{marginLeft: `-${lessonContent.length*3}rem`}}> {/* need to change this whenever offset of cards is changed */}
-        <div className="deck-card-wrapper">
-          {lessonContent.map((card, index) => (
+      <div className="deck-card-container" >
+        {activeCard === null && 
+          <div className="deck-default-description-panel">
+            <h1>This is the deck page.</h1>
+            <p>The Deck is your personal archive of all the fallacies you've mastered. Once you've learned them, come here to find their descriptions and track your overall progress.</p>
+          </div>
+        }
+        <div className="deck-card-wrapper"
+          style={{paddingRight: `${parseInt(localStorage.getItem("completedLessonIndex") || "0", 10)*3}rem`}}
+        >
+          {lessonContent.slice(0, parseInt(localStorage.getItem("completedLessonIndex") || "0", 10)).map((card, index) => (
               <div 
                 key={index} 
                 id={`card-${index}`}
