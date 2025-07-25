@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { lessonContent } from '../LessonContent.jsx';
+import NavigationBar from '../components/NavigationBar';
 
 export default function Deck() {
   const [activeCard, setActiveCard] = useState(null);
@@ -64,14 +65,7 @@ export default function Deck() {
 
   return (
     <div className="deck-page">
-      <div className="top-navigation">
-        <h1 className="placeholder-for-logo">Logic Lab</h1>
-        <div className="top-navigation-links">
-          <a href={`/`}>Learn</a>
-          <a href={`/deck`}>Deck</a>
-          <a href={`/about`}>About</a>
-        </div>
-      </div>
+      <NavigationBar/>
       <div className="deck-card-container" >
         {activeCard === null && 
           <div className="deck-default-description-panel">

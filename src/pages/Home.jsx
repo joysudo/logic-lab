@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import {unitDescription, lessonContent} from '../LessonContent.jsx';
+import NavigationBar from '../components/NavigationBar';
 
 
 export default function Home() {
@@ -15,14 +16,7 @@ export default function Home() {
 
   return (
     <div>
-      <div className="top-navigation">
-        <h1 className="placeholder-for-logo">Logic Lab</h1>
-        <div className="top-navigation-links">
-          <a href={`/`}>Learn</a>
-          <a href={`/deck`}>Deck</a>
-          <a href={`/about`}>About</a>
-        </div>
-      </div>
+      <NavigationBar/>
       <div className="lessons-column"> 
         {lessonContent.map((lesson, index) => {
           const isFirstLessonInUnit = lesson.unit !== currentUnitId;
