@@ -1,0 +1,8 @@
+.matching-container {
+  max-width: 100rem;
+  width: 100%;
+  text-align: center;
+  background-color: white;
+  padding: 3rem;
+  border-radius: 1rem;
+}
