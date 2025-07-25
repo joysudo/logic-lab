@@ -577,3 +577,49 @@ html.lesson-page-background {
     height: auto; 
     object-fit: contain;
 }
+
+.games-page {
+    display: flex;
+    gap: 1rem;
+}
+
+.games-card {
+    width: 100%;
+    min-height: 50vh;
+    padding: 5rem;
+    background-color: #fecea7;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.games-image {
+    max-width: 80%;
+    max-height: auto;    
+}
+
+.games-label {
+    color: white;
+}
+
+.games-button {
+    background-color: #ffeae6;
+    text-decoration: none !important;
+    color: #1f4242;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-family: 'Commissioner', sans-serif;
+    font-weight: bold;
+    transition: all ease-in-out 0.1s;
+}
+
+.games-button:hover {
+    background-color: #fd7e61;
+    }
+
+.games-button:active {
+    background-color: #cc6249;
+}
+

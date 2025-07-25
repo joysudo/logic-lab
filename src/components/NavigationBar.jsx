@@ -5,7 +5,7 @@ export default function NavigationBar() {
             <div className="top-navigation-links">
                 <a href={`/`}>Learn</a>
                 <a href={`/deck`}>Deck</a>
-                <a href={`/about`}>About</a>
+                <a href={`/games`}>Games</a>
             </div>
         </div>
     );
