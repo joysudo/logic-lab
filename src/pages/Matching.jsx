@@ -46,6 +46,9 @@ export default function Matching() {
       cardPairs.push({id: 2*index, content: fallacy.name, type: 'name', fallacyId: {index}}) // ids used to identify matched cards later 
       cardPairs.push({id: 2*index+1, content: fallacy.definition, type: 'definition', fallacyId: {index}})
     })
+    if (time < parseInt(localStorage.getItem('bestTimeMatching')) || !localStorage.getItem('bestTimeMatching')) {
+      localStorage.setItem('bestTimeMatching', (time).toString());
+    }
     setCards([...cardPairs].sort(() => Math.random() - 0.5));
     setFlipped([]);
     setMatched([]);
@@ -76,7 +79,7 @@ export default function Matching() {
         <div className="matching-container">
           <div className="matching-info">
             <h2 className="matching-timer">Time: {`${String(Math.floor(time / 60)).padStart('0')}:${String(time % 60).padStart(2, '0')}`}</h2>
-            <h2 className="matching-timer">Best time: {null}</h2> 
+            <h2 className="matching-timer">Best time: {`${String(Math.floor(parseInt(localStorage.getItem('bestTimeMatching')) / 60)).padStart('0')}:${String(parseInt(localStorage.getItem('bestTimeMatching')) % 60).padStart(2, '0')}`}</h2> 
           </div>
           <div className="matching-card-grid">
             {cards.map(card => (
@@ -95,7 +98,7 @@ export default function Matching() {
       {showWinMessage &&
         <div className={`matching-container matching-win-message`}>
          <h1>You won!</h1>
-         <p>Your time was {`${String(Math.floor(time / 60)).padStart('0')}:${String(time % 60).padStart(2, '0')}`}.</p>
+         <p>Your time was {`${String(Math.floor(time / 60)).padStart('0')}:${String(time % 60).padStart(2, '0')}`}{time >= parseInt(localStorage.getItem('bestTimeMatching')) ? " Can you beat your best?" : " That's a new personal best!"}.</p>
          <button onClick={resetGame} className="matching-button-replay matching-button">Play Again?</button>
          <a href={`/`} className="matching-button">Back to Home</a>
         </div>
