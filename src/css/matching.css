@@ -80,6 +80,19 @@
   transform: rotateY(180deg);
 }
 
+.matching-win-message {
+  transform: translate(-50%, -50%) scale(0);
+  transform-origin: center;
+  transition: transform 0.5s ease-out;
+  animation: scaleIn 0.5s ease-out forwards;
+}
+
+@keyframes scaleIn {
+  to {
+    transform: translate(-50%, -50%) scale(1); 
+  }
+}
+
 .matching-button {
   background-color: #ffeae6;
   text-decoration: none !important;

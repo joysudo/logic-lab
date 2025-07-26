@@ -8,6 +8,7 @@ export default function Matching() {
   const [matched, setMatched] = useState([]);
   const [time, setTime] = useState(0);
   const [gameStarted, setGameStarted] = useState(false);
+  const [showWinMessage, setShowWinMessage] = useState(false);
 
   // initialize cards
   useEffect( () => {
@@ -27,6 +28,18 @@ export default function Matching() {
     return () => clearInterval(interval);
   }, [flipped, matched]);
 
+  // wait one second before displaying congrats screen
+  useEffect(() => {
+    if (matched.length === fallacies.length * 2) {
+      const timer = setTimeout(() => {
+        setShowWinMessage(true)
+      }, 1000);
+      return () => clearTimeout(timer); // clean up on unmount
+    } else {
+      setShowWinMessage(false);
+    }
+  }, [matched]);
+
   const resetGame = () => {
     const cardPairs = [];
     fallacies.forEach((fallacy, index) => {
@@ -37,6 +50,8 @@ export default function Matching() {
     setFlipped([]);
     setMatched([]);
     setTime(0);
+    setGameStarted(false);
+    setShowWinMessage(false);
   };
 
   const handleCardClick = (id) => {
@@ -56,9 +71,9 @@ export default function Matching() {
     };
 
   return (
-    <div className="matching-container">
-      {matched.length !== fallacies.length * 2 &&
-        <>
+    <>
+      {!showWinMessage &&
+        <div className="matching-container">
           <div className="matching-info">
             <h2 className="matching-timer">Time: {`${String(Math.floor(time / 60)).padStart('0')}:${String(time % 60).padStart(2, '0')}`}</h2>
             <h2 className="matching-timer">Best time: {null}</h2> 
@@ -75,16 +90,16 @@ export default function Matching() {
               </div>
             ))}
           </div>
-        </>
+        </div>
       }
-      {matched.length === fallacies.length * 2 &&
-        <>
+      {showWinMessage &&
+        <div className={`matching-container matching-win-message`}>
          <h1>You won!</h1>
          <p>Your time was {`${String(Math.floor(time / 60)).padStart('0')}:${String(time % 60).padStart(2, '0')}`}.</p>
          <button onClick={resetGame} className="matching-button-replay matching-button">Play Again?</button>
          <a href={`/`} className="matching-button">Back to Home</a>
-        </>
+        </div>
       }
-    </div>
+    </>
   );
 };
