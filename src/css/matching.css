@@ -1,3 +1,8 @@
+body, html {
+  height: 100vh;
+  margin: 0
+}
+
 .matching-container {
   max-width: 100rem;
   width: 50%;
@@ -6,6 +11,10 @@
   padding: 3rem;
   border-radius: 1rem;
   margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .matching-info {
@@ -52,5 +61,23 @@
 
 .matching-card-back {
   background-color: antiquewhite;
+  display: flex;
+  flex-direction: column;
+  transform: rotateY(180deg);
+}
+
+.matching-card-back.matching-card-matched {
+  background-color: #ebe5dd;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.2s ease;
+}
+.matching-card-type {
+  font-style: italic;
+  font-weight: 500;
+  color: brown;
+}
+
+.matching-card-flipped {
   transform: rotateY(180deg);
 }
