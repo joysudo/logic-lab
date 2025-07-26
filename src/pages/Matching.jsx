@@ -17,11 +17,16 @@ export default function Matching() {
     setCards([...cardPairs].sort(() => Math.random() - 0.5));
   }, []); // only runs when initialized bc dependency array is empty
 
-  useEffect(() => {
-    if (matched.length === fallacies.length * 2) {
-      setTimeout(() => alert("you won! :) there will be a replay button later but just refresh"), 1000);
-    }
-  }, [matched]);
+  const resetGame = () => {
+    const cardPairs = [];
+    fallacies.forEach((fallacy, index) => {
+      cardPairs.push({id: 2*index, content: fallacy.name, type: 'name', fallacyId: {index}}) // ids used to identify matched cards later 
+      cardPairs.push({id: 2*index+1, content: fallacy.definition, type: 'definition', fallacyId: {index}})
+    })
+    setCards([...cardPairs].sort(() => Math.random() - 0.5));
+    setFlipped([]);
+    setMatched([]);
+  };
 
   const handleCardClick = (id) => {
     if (flipped.length === 2 || matched.includes(id)) return;
@@ -40,22 +45,33 @@ export default function Matching() {
 
   return (
     <div className="matching-container">
-      <div className="matching-info">
-        <h2 className="matching-timer">Time: {null}</h2> {/*later issue*/}
-        <h2 className="matching-timer">Best time: {null}</h2> {/*later: {bestTime !== null && ...}*/}
-      </div>
-      <div className="matching-card-grid">
-        {cards.map(card => (
-          <div
-            key={card.id}
-            onClick={() => handleCardClick(card.id)}
-            className={`matching-card ${flipped.includes(card.id) || matched.includes(card.id) ? "matching-card-flipped" : ""}`}
-          >
-            <div className="matching-card-front" >?</div> {/* style={{display: matched.includes(card.id) ? 'none' : undefined }} */}
-            <div className={`matching-card-back ${matched.includes(card.id) && 'matching-card-matched'}`}>{card.content}<p className="matching-card-type">{card.type}</p></div>
+      {matched.length !== fallacies.length * 2 &&
+        <>
+          <div className="matching-info">
+            <h2 className="matching-timer">Time: {null}</h2> {/*later issue*/}
+            <h2 className="matching-timer">Best time: {null}</h2> {/*later: {bestTime !== null && ...}*/}
           </div>
-        ))}
-      </div>
+          <div className="matching-card-grid">
+            {cards.map(card => (
+              <div
+                key={card.id}
+                onClick={() => handleCardClick(card.id)}
+                className={`matching-card ${flipped.includes(card.id) || matched.includes(card.id) ? "matching-card-flipped" : ""}`}
+              >
+                <div className="matching-card-front" >?</div> {/* style={{display: matched.includes(card.id) ? 'none' : undefined }} */}
+                <div className={`matching-card-back ${matched.includes(card.id) && 'matching-card-matched'}`}>{card.content}<p className="matching-card-type">{card.type}</p></div>
+              </div>
+            ))}
+          </div>
+        </>
+      }
+      {matched.length === fallacies.length * 2 &&
+        <>
+         <h1>You won!</h1>
+         <button onClick={resetGame} className="matching-button-replay matching-button">Play Again?</button>
+         <a href={`/`} className="matching-button">Back to Home</a>
+        </>
+      }
     </div>
   );
 };
