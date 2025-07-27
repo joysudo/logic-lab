@@ -11,7 +11,7 @@ import Loom from './pages/Loom';
 function App() {
   const [location] = useLocation();
   useEffect( () => {
-      if (location.startsWith('/lesson')) {
+      if (location.startsWith('/lesson') || location.startsWith('/matching')) {
         document.documentElement.classList.add('lesson-page-background');
       } else {
         document.documentElement.classList.remove('lesson-page-background');
