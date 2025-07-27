@@ -12,8 +12,8 @@ export default function Games() {
         </div>
         <div className="games-card">
             <img className="games-image" src={`/images/matching-icon.png`}></img>
-            <h1 className="games-label">Logic Loom</h1>
-            <a className="games-button" href={`/loom`}>Play</a>
+            <h1 className="games-label">Sort</h1>
+            <a className="games-button" href={`/sort`}>Play</a>
         </div>
       </div>
     </>

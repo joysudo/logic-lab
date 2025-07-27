@@ -5,8 +5,8 @@ import Lesson from './pages/Lesson';
 import About from './pages/About';
 import Deck from './pages/Deck';
 import Games from './pages/Games';
-import Matching from './pages/Matching';
-import Loom from './pages/Loom';
+import Matching from './pages/games/Matching';
+import Loom from './pages/games/Sort';
 
 function App() {
   const [location] = useLocation();

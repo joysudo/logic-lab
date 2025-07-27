@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { lessonContent} from '../LessonContent.jsx';
+import { lessonContent} from '../../LessonContent.jsx';
 
 export default function Matching() {
   const fallacies = lessonContent.slice(2).map(obj => ({name: obj.title, definition: obj.definition}));
@@ -26,13 +26,14 @@ export default function Matching() {
       interval = setInterval(() => setTime(t => t+1), 1000);
     }
     return () => clearInterval(interval);
-  }, [gameStarted, matched.length]);
+  }, [gameStarted]);
 
   // wait one second before displaying congrats screen
   useEffect(() => {
     if (matched.length === fallacies.length * 2) {
       const timer = setTimeout(() => {
-        setShowWinMessage(true)
+        setShowWinMessage(true);
+        setGameStarted(false);
       }, 1000);
       return () => clearTimeout(timer); // clean up on unmount
     } else {
