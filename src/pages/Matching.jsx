@@ -14,8 +14,8 @@ export default function Matching() {
   useEffect( () => {
     const cardPairs = [];
     fallacies.forEach((fallacy, index) => {
-      cardPairs.push({id: 2*index, content: fallacy.name, type: 'name', fallacyId: {index}}) // ids used to identify matched cards later 
-      cardPairs.push({id: 2*index+1, content: fallacy.definition, type: 'definition', fallacyId: {index}})
+      cardPairs.push({id: 2*index, content: fallacy.name, type: 'name', fallacyId: index}) // ids used to identify matched cards later 
+      cardPairs.push({id: 2*index+1, content: fallacy.definition, type: 'definition', fallacyId: index})
     })
     setCards([...cardPairs].sort(() => Math.random() - 0.5));
   }, []); // only runs when initialized bc dependency array is empty
@@ -26,7 +26,7 @@ export default function Matching() {
       interval = setInterval(() => setTime(t => t+1), 1000);
     }
     return () => clearInterval(interval);
-  }, [flipped, matched]);
+  }, [gameStarted, matched.length]);
 
   // wait one second before displaying congrats screen
   useEffect(() => {
@@ -64,7 +64,7 @@ export default function Matching() {
     setFlipped(newFlipped);
     if (newFlipped.length == 2) {
       const [card1, card2] = [cards.find(c => c.id === newFlipped[0]), cards.find(c => c.id === newFlipped[1])]; // retrieves full objects instead of just ids
-      if (card1.fallacyId.index === card2.fallacyId.index) {
+      if (card1.fallacyId === card2.fallacyId) {
         setMatched(prev => [...prev, card1.id, card2.id]);
         setFlipped([]);
       } else {
