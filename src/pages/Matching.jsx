@@ -75,11 +75,16 @@ export default function Matching() {
 
   return (
     <>
+      <a href={`/games`} className="button-exit">
+        <svg viewBox="-3.5 0 19 19">
+          <path d="M11.383 13.644A1.03 1.03 0 0 1 9.928 15.1L6 11.172 2.072 15.1a1.03 1.03 0 1 1-1.455-1.456l3.928-3.928L.617 5.79a1.03 1.03 0 1 1 1.455-1.456L6 8.261l3.928-3.928a1.03 1.03 0 0 1 1.455 1.456L7.455 9.716z"/>
+        </svg>
+      </a>
       {!showWinMessage &&
         <div className="matching-container">
           <div className="matching-info">
             <h2 className="matching-timer">Time: {`${String(Math.floor(time / 60)).padStart('0')}:${String(time % 60).padStart(2, '0')}`}</h2>
-            <h2 className="matching-timer">Best time: {`${String(Math.floor(parseInt(localStorage.getItem('bestTimeMatching')) / 60)).padStart('0')}:${String(parseInt(localStorage.getItem('bestTimeMatching')) % 60).padStart(2, '0')}`}</h2> 
+            {localStorage.getItem('bestTimeMatching') && <h2 className="matching-timer">Best time: {`${String(Math.floor(parseInt(localStorage.getItem('bestTimeMatching')) / 60)).padStart('0')}:${String(parseInt(localStorage.getItem('bestTimeMatching')) % 60).padStart(2, '0')}`}</h2>}
           </div>
           <div className="matching-card-grid">
             {cards.map(card => (
@@ -98,7 +103,7 @@ export default function Matching() {
       {showWinMessage &&
         <div className={`matching-container matching-win-message`}>
          <h1>You won!</h1>
-         <p>Your time was {`${String(Math.floor(time / 60)).padStart('0')}:${String(time % 60).padStart(2, '0')}`}{time >= parseInt(localStorage.getItem('bestTimeMatching')) ? " Can you beat your best?" : " That's a new personal best!"}.</p>
+         <p>Your time was {`${String(Math.floor(time / 60)).padStart('0')}:${String(time % 60).padStart(2, '0')}`}.{time >= parseInt(localStorage.getItem('bestTimeMatching')) ? " Can you beat your best?" : " That's a new personal best!"}.</p>
          <button onClick={resetGame} className="matching-button-replay matching-button">Play Again?</button>
          <a href={`/`} className="matching-button">Back to Home</a>
         </div>
