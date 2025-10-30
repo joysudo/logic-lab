@@ -2,7 +2,7 @@ import { React, useEffect } from 'react';
 import { Route, Switch, useLocation } from 'wouter';
 import Home from './pages/Home';
 import Lesson from './pages/Lesson';
-import About from './pages/About';
+import Extension from './pages/Extension';
 import Deck from './pages/Deck';
 import Games from './pages/Games';
 import Matching from './pages/games/Matching';
@@ -22,7 +22,7 @@ function App() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/lesson/:id" component={Lesson} />
-      <Route path="/about" component={About} />
+      <Route path="/extension" component={Extension} />
       <Route path="/deck" component={Deck} />
       <Route path="/games" component={Games} />
       <Route path="/matching" component={Matching} />
