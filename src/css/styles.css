@@ -1,14 +1,33 @@
-html {
-    background: linear-gradient(135deg, hsl(222, 47%, 21%) 0%, hsl(222, 47%, 31%) 50%, hsl(222, 47%, 11%) 100%);
+html { 
+    background-color: #2A4074;
+    background-image:
+    url('/images/background-texture.png');
+    background-repeat: repeat;
+    background-size: 300px 300px;
     min-height: 100vh;
 }
+
+@font-face {
+    font-family: 'ZT Formom';
+    src: url('/fonts/ZT Formom.woff2') format('woff2');
+    font-weight: normal; 
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'ZT Formom';
+    src: url('/fonts/ZT Formom Italic.woff2') format('woff2');
+    font-weight: normal; 
+    font-style: italic;
+  }
 
 body {
     color: #06052d;
     font-family: 'Commissioner', sans-serif;
     margin: 2rem;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 html.lesson-page-background {
@@ -17,28 +36,33 @@ html.lesson-page-background {
 
 /* NAVIGATION BAR */
 .placeholder-for-logo {
-    display: flex;
     color: white;
     font-weight: 600;
-    font-size: 2rem;
+    font-size: 2.25rem;
 }
 
 .top-navigation {
+    font-family: 'ZT Formom', serif;
     display: flex;
     justify-content: space-between;
 }
 
 .top-navigation-links {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
     text-decoration: none !important;
     color: #738edf !important;
     font-weight: 600 !important;
-    font-size: 2rem !important;
+    font-size: 2.25rem !important;
 }
 
-.top-navigation-links a:visited {
-    color: #738edf;
+.top-navigation-links a,
+.top-navigation-links a:link,
+.top-navigation-links a:visited,
+.top-navigation-links a:hover,
+.top-navigation-links a:active,
+.top-navigation-links a:focus {
+    color: #738edf !important;
     text-decoration: none !important;
 }
 
@@ -56,18 +80,17 @@ html.lesson-page-background {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    margin-top: 1.25rem;
 }
 
 .lesson-card {
     background: #f3f3ec;
-    border-radius: 1rem; 
+    border-radius: 2rem; 
     padding: 1.5rem;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
     width: 80%;
-    max-width: 15rem;
+    max-width: 35vh;
     min-height: 0;
-    aspect-ratio: 4/5;
+    aspect-ratio: 5/7;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -101,10 +124,11 @@ html.lesson-page-background {
 .lesson-card-unlocked-title {
     display: inline-block;
     text-decoration: none;
+    font-family: 'ZT Formom', serif;
     color: #738edf;
     font-weight: 600;
-    font-size: 1.9rem;
-    line-height: 1.7rem;
+    font-size: 2.25rem;
+    line-height: 2.25rem;
 }
 
 .lesson-card-locked {
@@ -112,21 +136,30 @@ html.lesson-page-background {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: calc(100% - 0.5rem);
+    height: calc(100% - 0.5rem); 
+    box-sizing: border-box;
+    border: 0.25rem solid #f3f3ec;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 1.5rem; 
 }
 
 .lesson-card-locked img {
-    width: calc(100% + 3rem);
     height: calc(100%);
+    width: calc(100%);
+    object-fit: cover;
     display: block;
 }
 
 .lesson-card-locked h1 {
     border-radius: 1rem;
     position: absolute;
-    color: white;
+    font-family: 'ZT Formom', serif;
+    font-size: 3rem;
+    color: #2a4074;
+    background-color: #f3f3ec;
     text-align: center;
-    line-height: 1.7rem;
-    background-color: #091715;
 }
 
 .lesson-card-play {
@@ -137,9 +170,10 @@ html.lesson-page-background {
 .lesson-card-play-title {
     text-decoration: none;
     color: #193D3A;
+    font-family: 'ZT Formom', serif;
     font-weight: 600;
-    font-size: 1.9rem;
-    line-height: 1.7rem;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
 }
 
 .lesson-card-play-button {
@@ -375,7 +409,9 @@ html.lesson-page-background {
 }
 
 .deck-default-description-panel h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    font-family: 'ZT Formom', serif;
+    font-style: italic;
 }
 
 .deck-card-wrapper {
@@ -395,7 +431,7 @@ html.lesson-page-background {
     min-height: 15rem;
     max-width: 12rem;
     max-height: 18rem;
-    aspect-ratio: 2/3;
+    aspect-ratio: 5/7;
     padding: 1rem;
     position: absolute;
     display: flex;
@@ -453,9 +489,10 @@ html.lesson-page-background {
     display: inline-block;
     text-decoration: none;
     color: #738edf;
+    font-family: 'ZT Formom', serif;
     font-weight: 600;
-    font-size: 1.7rem;
-    line-height: 1.7rem;
+    font-size: 1.6rem;
+    line-height: 1.6rem;
     margin: 0.5rem;
 }
 
@@ -496,6 +533,8 @@ html.lesson-page-background {
 
 .deck-card-description-panel h2 {
     text-align: left;
+    font-family: 'ZT Formom', serif;
+    font-style: italic;
     font-size: 2rem;
 }
 
