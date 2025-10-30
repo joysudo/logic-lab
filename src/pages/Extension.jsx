@@ -25,7 +25,9 @@ export default function Extension() {
                     <button className="about-button">
                             SEE THE CODE
                         </button>
-
+                    <a href="https://github.com/joysudo/logic-lab"> <button className="about-button">
+                            LOOK AT THE WEBSITE ON GITHUB
+                        </button> </a>
             </section>
         </>
     );

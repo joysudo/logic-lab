@@ -51,7 +51,7 @@
 }
 
 .matching-card-front {
-  background-color: #738edf;
+  background-image: url('/images/sample-card-back.png');
   color: white;
   font-size: 3rem;
   font-weight: 500;

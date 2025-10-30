@@ -104,7 +104,7 @@ export default function Matching() {
                 onClick={() => handleCardClick(card.id)}
                 className={`matching-card ${flipped.includes(card.id) || matched.includes(card.id) ? "matching-card-flipped" : ""}`}
               >
-                <div className="matching-card-front" >?</div> {/* style={{display: matched.includes(card.id) ? 'none' : undefined }} */}
+                <div className="matching-card-front" ></div> {/* style={{display: matched.includes(card.id) ? 'none' : undefined }} */}
                 <div className={`matching-card-back ${matched.includes(card.id) && 'matching-card-matched'}`}>{card.content}<p className="matching-card-type">{card.type}</p></div>
               </div>
             ))}
