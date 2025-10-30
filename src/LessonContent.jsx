@@ -4,11 +4,13 @@ const unitDescription = [
   {id: 1, name: "Intro to Logic & Argument", description: "This unit teaches you how to spot and understand arguments. You'll learn that arguments have reasons (premises) that lead to a main point (conclusion), and how to tell if an argument is built well (valid) and makes sense in the real world (sound). You'll also discover different types of arguments, like those that try to prove something for sure (deductive) and those that just try to show it's likely (inductive)."},
   {id: 2, name: "Formal Fallacies", description: "In this unit, you'll learn about mistakes in the structure of an argument. These mistakes make an argument's conclusion not necessarily follow from its premises, even if the premises are true. You'll explore common errors like affirming the consequent, denying the antecedent, and the undistributed middle."},
   {id: 3, name: "Informal Fallacies I - Fallacies of Relevance", description: "This unit focuses on arguments that try to trick you by bringing up information that doesn't actually relate to the main point. You'll learn about ad hominem attacks, trying to win by twisting someone's words, and changing the subject entirely."},
+  {id: 4, name: "Informal Fallacies II - Weak Induction", description: "This unit explores arguments where the premises do relate to the conclusion but offer insufficient or weak evidence to support it. You'll learn to spot hasty generalizations, appeals to unqualified authority, and slippery slope arguments that leap to conclusions without proper backing."},
+  {id: 5, name: "Informal Fallacies III - Presumption & Ambiguity", description: "This unit covers deceptive arguments that rely on unwarranted assumptions or unclear wording. We'll examine fallacies like begging the question, complex questions, and the misuse of words with multiple meanings."},
 ]
 
 const lessonContent = [
   {
-    title: "Sample Lesson 1",
+    title: "Introducing Argument",
     description: "1: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
     definition: "this is the definition for sample lesson 1",
     unit: 1,
@@ -138,7 +140,7 @@ const lessonContent = [
       ]
     ]
   }, {
-    title: "Sample Lesson 2",
+    title: "Validity v. Soundness",
     description: "2: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
     definition: "this is the definition for sample lesson 2",
     unit: 1,
@@ -147,7 +149,7 @@ const lessonContent = [
       [<Reveal before="reveal slide text" after="this is after the reveal"/>]
     ]
   }, {
-    title: "Sample Lesson 3",
+    title: "Deductive v. Inductive",
     description: "3: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
     definition: "this is the definition for sample lesson 3",
     unit: 2,
@@ -156,31 +158,169 @@ const lessonContent = [
       [<Reveal before="reveal slide text" after="this is after the reveal"/>]
     ]
   }, {
-    title: "Sample Lesson 4",
-    description: "4: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-    definition: "this is the definition for sample lesson 4",
+    title: "Affirming the Consequent",
+    description: "This fallacy occurs when one assumes that if 'If P, then Q' and 'Q' are true, then 'P' must be true. It confuses cause and effect.",
+    definition: "If P then Q. Q. Therefore, P. (Invalid form)",
     unit: 2,
     slides: [
-      [<Heading text="Red Herring"/>, <BodyText text="this is some sample lesson 2 body text"/>],
-      [<Reveal before="reveal slide text" after="this is after the reveal"/>]
+      [<Heading text="Example"/>, <BodyText text="If it rains, the ground gets wet. The ground is wet. Therefore, it rained. (Not necessarily—someone could’ve watered the lawn.)"/>]
     ]
-  }, {
-    title: "Sample Lesson 5",
-    description: "5: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-    definition: "this is the definition for sample lesson 5",
+  },
+  {
+    title: "Denying the Antecedent",
+    description: "This fallacy assumes that if 'If P, then Q' and 'not P' are true, then 'not Q' must be true. It mistakenly treats the conditional as biconditional.",
+    definition: "If P then Q. Not P. Therefore, not Q. (Invalid form)",
     unit: 2,
     slides: [
-      [<Heading text="False Dichotomy"/>, <BodyText text="this is some sample lesson 3 body text"/>],
-      [<Reveal before="reveal slide text" after="this is after the reveal"/>]
+      [<Heading text="Example"/>, <BodyText text="If I’m in Paris, I’m in France. I’m not in Paris. Therefore, I’m not in France. (Invalid—could be in Lyon.)"/>]
     ]
-  }, {
-    title: "Sample Lesson 6",
-    description: "6: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-    definition: "this is the definition for sample lesson 6",
+  },
+  {
+    title: "Undistributed Middle",
+    description: "A formal fallacy in categorical syllogisms where the middle term does not connect the two premises properly.",
+    definition: "Failure to distribute (apply to all members) the middle term between premises.",
+    unit: 2,
+    slides: [
+      [<Heading text="Example"/>, <BodyText text="All cats are mammals. All dogs are mammals. Therefore, all dogs are cats. (The middle term 'mammals' is undistributed.)"/>]
+    ]
+  },
+  
+  // ———————————————
+  // UNIT 3: INFORMAL FALLACIES I — RELEVANCE
+  // ———————————————
+  {
+    title: "Ad Hominem",
+    description: "Attacking the person instead of addressing their argument.",
+    definition: "An argument that dismisses someone's claim by criticizing the speaker rather than the reasoning.",
     unit: 3,
     slides: [
-      [<Heading text="Red Herring"/>, <BodyText text="this is some sample lesson 2 body text"/>],
-      [<Reveal before="reveal slide text" after="this is after the reveal"/>]
+      [<Heading text="Example"/>, <BodyText text="‘You’re wrong about climate change because you’re not a scientist.’"/>]
+    ]
+  },
+  {
+    title: "Appeal to Emotion",
+    description: "Attempting to persuade by eliciting emotions rather than presenting logical reasons.",
+    definition: "Subtypes: ad misericordiam (appeal to pity) and ad populum (appeal to popularity).",
+    unit: 3,
+    slides: [
+      [<Heading text="Example: Ad Misericordiam"/>, <BodyText text="‘You must pass me, I worked so hard and my family needs this.’"/>],
+      [<Heading text="Example: Ad Populum"/>, <BodyText text="‘Everyone believes this, so it must be true.’"/>]
+    ]
+  },
+  {
+    title: "Strawman",
+    description: "Misrepresenting an opponent’s argument to make it easier to attack.",
+    definition: "Distorting someone’s position before refuting the distorted version.",
+    unit: 3,
+    slides: [
+      [<Heading text="Example"/>, <BodyText text="A: ‘We should have background checks for gun buyers.’ B: ‘My opponent wants to take away all your guns.’"/>]
+    ]
+  },
+  {
+    title: "Red Herring",
+    description: "Introducing an irrelevant topic to divert attention from the real issue.",
+    definition: "A distraction fallacy that shifts focus from the original argument.",
+    unit: 3,
+    slides: [
+      [<Heading text="Example"/>, <BodyText text="‘Why worry about pollution when there are people starving?’"/>]
+    ]
+  },
+  {
+    title: "Appeal to Force (Ad Baculum)",
+    description: "Using threats or fear instead of reasoning to persuade.",
+    definition: "Arguing that one should accept a conclusion to avoid punishment or harm.",
+    unit: 3,
+    slides: [
+      [<Heading text="Example"/>, <BodyText text="‘Agree with the policy or you’ll lose your job.’"/>]
+    ]
+  },
+  
+  // ———————————————
+  // UNIT 4: INFORMAL FALLACIES II — WEAK INDUCTION
+  // ———————————————
+  {
+    title: "Hasty Generalization",
+    description: "Drawing a general rule from too few or unrepresentative examples.",
+    definition: "Making a broad claim based on limited evidence.",
+    unit: 4,
+    slides: [
+      [<Heading text="Example"/>, <BodyText text="‘My two teachers were strict, so all teachers are strict.’"/>]
+    ]
+  },
+  {
+    title: "Weak Analogy",
+    description: "Assuming two things are alike in all respects because they are alike in some respects.",
+    definition: "Comparing dissimilar things as if they were sufficiently alike to justify a conclusion.",
+    unit: 4,
+    slides: [
+      [<Heading text="Example"/>, <BodyText text="‘Cars and people both have engines, so people should need oil changes.’"/>]
+    ]
+  },
+  {
+    title: "False Cause (Post Hoc)",
+    description: "Mistaking temporal sequence or correlation for causation.",
+    definition: "Assuming that because one event followed another, it was caused by it.",
+    unit: 4,
+    slides: [
+      [<Heading text="Example"/>, <BodyText text="‘I wore my lucky socks and we won. Therefore, the socks caused the win.’"/>]
+    ]
+  },
+  {
+    title: "Slippery Slope",
+    description: "Arguing that a small first step will inevitably lead to a chain of related (usually negative) events.",
+    definition: "Predicting catastrophic results without sufficient evidence of the causal chain.",
+    unit: 4,
+    slides: [
+      [<Heading text="Example"/>, <BodyText text="‘If we allow students to redo one test, next they’ll want to redo every assignment.’"/>]
+    ]
+  },
+  
+  // ———————————————
+  // UNIT 5: INFORMAL FALLACIES III — PRESUMPTION & AMBIGUITY
+  // ———————————————
+  {
+    title: "Begging the Question (Circular Reasoning)",
+    description: "The argument’s conclusion is assumed in one of its premises.",
+    definition: "Restating the conclusion as a premise; assuming what needs to be proven.",
+    unit: 5,
+    slides: [
+      [<Heading text="Example"/>, <BodyText text="‘Reading is beneficial because it’s good for you to read.’"/>]
+    ]
+  },
+  {
+    title: "Loaded Question",
+    description: "A question that presupposes guilt or accepts a controversial assumption.",
+    definition: "A question structured so any direct answer commits the respondent to a claim.",
+    unit: 5,
+    slides: [
+      [<Heading text="Example"/>, <BodyText text="‘Have you stopped cheating on your taxes?’ (implies you were cheating)."/>]
+    ]
+  },
+  {
+    title: "False Dichotomy",
+    description: "Presenting only two options when more alternatives exist.",
+    definition: "Framing a situation as either/or when it’s not exhaustive.",
+    unit: 5,
+    slides: [
+      [<Heading text="Example"/>, <BodyText text="‘You’re either with us or against us.’"/>]
+    ]
+  },
+  {
+    title: "Equivocation",
+    description: "Using a key term in different senses within the same argument.",
+    definition: "A shift in word meaning that makes an argument misleading.",
+    unit: 5,
+    slides: [
+      [<Heading text="Example"/>, <BodyText text="‘Feathers are light. What is light cannot be dark. Therefore, feathers cannot be dark.’"/>]
+    ]
+  },
+  {
+    title: "Amphiboly",
+    description: "A fallacy caused by ambiguous grammar or syntax rather than word meaning.",
+    definition: "A misleading argument due to structural ambiguity in a sentence.",
+    unit: 5,
+    slides: [
+      [<Heading text="Example"/>, <BodyText text="‘The police shot the thief with a gun.’ (Who had the gun?)"/>]
     ]
   }
 ];

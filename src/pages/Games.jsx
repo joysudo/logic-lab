@@ -6,12 +6,12 @@ export default function Games() {
       <NavigationBar/>  
       <div className="games-page">
         <div className="games-card">
-        <img className="games-image" src={`/images/matching-icon.png`}></img>
+        <img className="games-image" src={`/images/card7.png`}></img>
             <h1 className="games-label">Matching</h1>
             <a className="games-button" href={`/matching`}>Play</a>
         </div>
         <div className="games-card">
-            <img className="games-image" src={`/images/matching-icon.png`}></img>
+            <img className="games-image" src={`/images/card9.png`}></img>
             <h1 className="games-label">Sort</h1>
             <a className="games-button" href={`/sort`}>Play</a>
         </div>
