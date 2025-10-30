@@ -2,13 +2,23 @@ import { useState, useEffect } from 'react';
 import { lessonContent} from '../../LessonContent.jsx';
 
 export default function Matching() {
-  const fallacies = lessonContent.slice(2).map(obj => ({name: obj.title, definition: obj.definition}));
   const [cards, setCards] = useState([]);
   const [flipped, setFlipped] = useState([]);
   const [matched, setMatched] = useState([]);
   const [time, setTime] = useState(0);
   const [gameStarted, setGameStarted] = useState(false);
   const [showWinMessage, setShowWinMessage] = useState(false);
+
+  const availableFallacies = lessonContent.slice(2).map(obj => ({name: obj.title, definition: obj.definition}));
+  const shuffleArray = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  };
+  
+  const fallacies = shuffleArray([...availableFallacies]).slice(0, 4);
 
   // initialize cards
   useEffect( () => {
