@@ -56,7 +56,7 @@ const lessonContent = [
         />,
         <Reveal 
           before="“We should leave early because traffic will be bad later.” Can you find the conclusion and the premise?" 
-          after="- Premise: Traffic will be bad later.\n- Conclusion: We should leave early.\nThe premise gives a reason why the conclusion is supposed to be true." 
+          after="- Premise: Traffic will be bad later. - Conclusion: We should leave early. The premise gives a reason why the conclusion is supposed to be true." 
         />
       ],
 
@@ -107,7 +107,7 @@ const lessonContent = [
       [
         <Reveal 
           before="“He must be home; his car is in the driveway.” Which is the premise, and which is the conclusion?" 
-          after="- Premise: His car is in the driveway.\n- Conclusion: He must be home.\nThe speaker is using the car as evidence to support the conclusion." 
+          after="- Premise: His car is in the driveway. - Conclusion: He must be home. The speaker is using the car as evidence to support the conclusion." 
         />
       ],
 
@@ -145,8 +145,112 @@ const lessonContent = [
     definition: "this is the definition for sample lesson 2",
     unit: 1,
     slides: [
-      [<Heading text="Red Herring"/>, <BodyText text="this is some sample lesson 2 body text"/>],
-      [<Reveal before="reveal slide text" after="this is after the reveal"/>]
+      [
+        <Heading text="Is It True? Is It Strong? The Two Tests of an Argument"/>,
+        <Subheading text="Lesson 3: Validity vs. Soundness (and Why It Matters)"/>
+      ],
+    
+      [
+        <BodyText text="In the last lessons, you learned how to identify an argument by finding its premises and conclusion."/>,
+        <BodyText text="But finding an argument is only the first step. The real challenge—and the key to media literacy—is learning how to evaluate an argument."/>,
+        <BodyText text="How do you know if an argument is good or bad? We use two different, critical concepts: Validity and Soundness."/>,
+        <BodyText text="These terms don't mean 'true' or 'good' in the everyday sense; they are precise tools for logic."/>,
+        <Reveal 
+          before="Think of it like building a house. One concept is about the blueprint (the structure), and the other is about the materials (the truth of the facts)." 
+          after="Validity is about the blueprint (the structure). Soundness is about the materials (the truth of the facts)." 
+        />
+      ],
+    
+      [
+        <Subheading text="Test #1: Validity (The Blueprint)"/>,
+        <BodyText text="Validity is all about the structure of the argument, not whether the statements are actually true."/>,
+        <BodyText text="A valid argument is one where if the premises were true, the conclusion would have to be true. The conclusion follows logically from the premises."/>,
+        <BodyText text="It’s a hypothetical test: Does the conclusion flow from the premises?"/>,
+        <BodyText text="The argument below is valid because its structure works, even if the premise is silly:"/>,
+        <BodyText text="Premise 1: All birds are mammals."/>,
+        <BodyText text="Premise 2: A robin is a bird."/>,
+        <BodyText text="Conclusion: Therefore, a robin is a mammal."/>
+      ],
+    
+      [
+        <BodyText text="Wait, robins are not mammals! Why is this valid?"/>,
+        <BodyText text="Because we are ignoring the real-world truth for a moment. If we assume P1 and P2 are true, the conclusion logically must be true."/>,
+        <BodyText text="If the premises are taken as true, the logic holds up. The blueprint is perfect."/>,
+        <Reveal 
+          before="So, what is the key to validity?" 
+          after="An argument is valid if it is impossible for all the premises to be true and the conclusion false at the same time." 
+        />
+      ],
+    
+      [
+        <Subheading text="Test #2: Soundness (The Materials)"/>,
+        <BodyText text="Soundness is a stronger test. For an argument to be sound, it must satisfy two conditions:"/>,
+        <BodyText text="1. The argument must be Valid (the blueprint is correct)."/>,
+        <BodyText text="2. All of its premises must be Actually True (the materials are good)."/>,
+        <BodyText text="If an argument is valid AND based on facts, it's a sound argument—the strongest kind."/>,
+        <BodyText text="The 'robin' argument from before was valid, but it was unsound because the first premise ('All birds are mammals') is false."/>
+      ],
+    
+      [
+        <BodyText text="Here is a sound argument:"/>,
+        <BodyText text="Premise 1: All fish can swim."/>,
+        <BodyText text="Premise 2: A shark is a fish."/>,
+        <BodyText text="Conclusion: Therefore, a shark can swim."/>,
+        <BodyText text="It’s valid (the logic holds), AND the premises are factually true."/>
+      ],
+    
+      [
+        <Question 
+          type="radio" 
+          question="Consider this argument: 'All cars run on electricity. My vehicle is a car. Therefore, my vehicle runs on electricity.' Is this argument valid or sound?" 
+          answers={[
+            ["It is both valid and sound.", "Incorrect. The first premise is factually false."],
+            ["It is valid but unsound.", "Correct! The structure is logically perfect (valid), but the first premise is false, making it unsound."],
+            ["It is invalid but sound.", "Incorrect. Sound arguments must be valid."],
+            ["It is neither valid nor sound.", "Incorrect. The logic flows perfectly, making it valid."]
+          ]} 
+          correct={1}
+        />
+      ],
+    
+      [
+        <Subheading text="Why This Distinction Matters for Media Literacy"/>,
+        <BodyText text="In the real world, especially in advertising and political commentary, people often try to get you to accept an argument that is valid but unsound."/>,
+        <BodyText text="They might present a perfectly structured argument (it sounds logical), but they sneak in a false or distorted premise."/>,
+        <BodyText text="Your job as a critical thinker is to check both:"/>,
+        <BodyText text="1. Validity: Does the conclusion actually follow from the premises?"/>,
+        <BodyText text="2. Truth of Premises: Are the premises actually true?"/>
+      ],
+    
+      [
+        <BodyText text="If an influencer says: 'All successful people get only 4 hours of sleep. I get 4 hours of sleep. Therefore, I am successful.'"/>,
+        <BodyText text="The argument is valid (the conclusion follows the rules), but the first premise is likely false (unsound), making the argument unreliable."/>,
+        <Reveal 
+          before="Can you think of a real-world example of an argument that is valid but relies on a false premise?" 
+          after="Political example: 'Everyone who is against this new law is a socialist. You are against this new law. Therefore, you are a socialist.' The structure is valid, but the first premise ('Everyone who is against this new law is a socialist') is a false generalization and likely an oversimplification, making the argument unsound." 
+        />
+      ],
+    
+      [
+        <BodyText text="For now, just remember:"/>,
+        <BodyText text="- Validity = Does the conclusion flow from the premises (good blueprint)?"/>,
+        <BodyText text="- Soundness = Is it valid AND are the premises true (good blueprint and good materials)?"/>,
+        <BodyText text="- A sound argument is the gold standard; it's logically compelling and factually correct."/>
+      ],
+    
+      [
+        <Question 
+          type="radio" 
+          question="Which condition is necessary for an argument to be considered sound?" 
+          answers={[
+            ["The premises are persuasive, even if the conclusion is weak.", "Incorrect. Persuasion isn't the same as soundness, and the conclusion must be well-supported."],
+            ["The argument must be valid, and all of its premises must be true.", "Correct! This is the precise two-part definition of a sound argument."],
+            ["The premises must be facts, regardless of the logical connection to the conclusion.", "Incorrect. Soundness requires validity (a logical connection)."],
+            ["The conclusion must be true, even if the premises are false.", "Incorrect. Soundness requires true premises and validity."]
+          ]} 
+          correct={1}
+        />
+      ]
     ]
   }, {
     title: "Deductive v. Inductive",
