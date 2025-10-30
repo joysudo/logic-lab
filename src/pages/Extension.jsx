@@ -8,22 +8,24 @@ export default function Extension() {
                 <div className="about-content-wrapper">
                     <div className="about-text-content">
                         <h1 className="about-heading">
-                            See the extension in action:
+                        🌱 Get ready for Logic Lab: The Extension.
                         </h1>
                         <p className="about-paragraph">
-                            Placeholder text placeholder text placeholder text.
+                        Get a tool on the path towards media literacy. The Logic Lab Chrome extension scans the webpages you read to highlight and explain common logical fallacies. Whether you're dissecting a news article, evaluating a social media debate, or fact-checking academic material, our tool provides real-time, objective analysis right in your browser. 
                         </p>
-                        <button className="about-button">
-                            This will be a link
-                        </button>
+                        
                     </div>
-                    <div className="about-image-container">
+                </div>
+                <div className="about-image-container">
                         <img
-                            src={`/images/oops.jpg`}
+                            src={`/images/extension.png`}
                             className="about-image"
                         ></img>
                     </div>
-                </div>
+                    <button className="about-button">
+                            SEE THE CODE
+                        </button>
+
             </section>
         </>
     );

@@ -31,7 +31,7 @@ body {
 }
 
 html.lesson-page-background {
-    background: #f3f3ec !important;
+    background: #f9f9f6 !important;
 }
 
 /* NAVIGATION BAR */
@@ -88,7 +88,8 @@ html.lesson-page-background {
     border-radius: 2rem; 
     padding: 1.5rem;
     width: 80%;
-    max-width: 35vh;
+    min-width: 14vw;
+    max-width: 15vw;
     min-height: 0;
     aspect-ratio: 5/7;
     display: flex;
@@ -115,7 +116,7 @@ html.lesson-page-background {
 }
 
 .lesson-card-unlocked img {
-    max-height: 70%;
+    max-width: 100%;
     object-fit: contain;
     display: inline-block;
     vertical-align: middle;
@@ -219,7 +220,7 @@ html.lesson-page-background {
     background: #e8e8db;
     border-radius: 1.75rem; 
     padding: 1rem;
-    width: 100%;
+    /* width: 100%; */
     display: flex;
     box-sizing: border-box;
     justify-content: center;
@@ -235,7 +236,7 @@ html.lesson-page-background {
 
 .unit-progress-border {
     box-sizing: border-box;
-    width: 100%;
+    /* width: 100%; */
     height: 1.5rem;
     border-radius: 1rem;
     overflow: hidden;
@@ -257,9 +258,10 @@ html.lesson-page-background {
     display: flex; 
     flex-direction: column;
     align-items: center; 
+    min-height: 95vh; 
+    justify-content: center;
     width: 100%; 
     position: relative; 
-    background-color: #f3f3ec;
 }
 
 .slide-navigation {
@@ -552,16 +554,13 @@ html.lesson-page-background {
     }
   }
 
-.about-section-container {
-    padding: 1rem;
-    background: #f3f3ec;
-    border-radius: 2rem;
-}
+
 
 .about-content-wrapper {
     max-width: 80rem; 
-    margin-left: auto; 
-    margin-right: auto; 
+    margin-top: 5vh;
+    /* margin-left: auto; 
+    margin-right: auto;  */
     display: flex;
     flex-direction: row; 
     align-items: center; 
@@ -579,17 +578,18 @@ html.lesson-page-background {
 }
 
 .about-heading {
-    font-size: 1.875rem;
+    font-size: 2rem;
+    font-family: 'ZT formom', serif;
+    font-style: italic;
     font-weight: 700;
-    color: black;
-    margin-bottom: 1rem;
+    color: white;
+    margin-bottom: 0rem;
 }
 
 .about-paragraph {
     font-size: 1rem; 
-    color: black; 
+    color: white; 
     margin-bottom: 2rem; 
-    max-width: 28rem; 
 }
 
 .about-button {
@@ -601,6 +601,10 @@ html.lesson-page-background {
     border-radius: 1rem;
     border: none;
     font-weight: bold;
+    font-style: italic;
+    margin-top: 0.9rem;
+    font-size: 1.2rem;
+    cursor: pointer;
     
 }
 
@@ -626,7 +630,7 @@ html.lesson-page-background {
     width: 100%;
     min-height: 50vh;
     padding: 5rem;
-    background-color: #bdb6aa;
+    background-color: #f9f9f6;
     border-radius: 2rem;
     display: flex;
     flex-direction: column;
@@ -640,7 +644,7 @@ html.lesson-page-background {
 }
 
 .games-label {
-    color: white;
+    color: #738edf;
 }
 
 .games-button {
