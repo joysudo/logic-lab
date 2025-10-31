@@ -39,12 +39,15 @@ html.lesson-page-background {
     color: white;
     font-weight: 600;
     font-size: 2.25rem;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .top-navigation {
     font-family: 'ZT Formom', serif;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 3rem;
 }
 
 .top-navigation-links {

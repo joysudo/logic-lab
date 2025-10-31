@@ -76,7 +76,7 @@ export default function Deck() {
         <div className="deck-card-wrapper"
           style={{paddingRight: `${parseInt(localStorage.getItem("completedLessonIndex") || "0", 10)*3}rem`}}
         >
-          {lessonContent.slice(2, parseInt(localStorage.getItem("completedLessonIndex") || "0", 10)).map((card, index) => ( // remember to change this index if the number of intro lessons are changed
+          {lessonContent.slice(3, parseInt(localStorage.getItem("completedLessonIndex") || "0", 10)).map((card, index) => ( // remember to change this index if the number of intro lessons are changed
               <div 
                 key={index} 
                 id={`card-${index}`}
@@ -89,7 +89,7 @@ export default function Deck() {
                 </div>
                 <div className="deck-card-front">
                   <h3>{card.title}</h3>
-                  <img src={`/images/card${index + 1}.png`}></img>
+                  <img src={`/images/card${index + 4}.png`}></img>
                 </div>
               </div>
           ))}
@@ -97,8 +97,8 @@ export default function Deck() {
         <div className={`deck-card-description-panel ${activeCard !== null ? 'visible' : ''}`}>
           {activeCard !== null && (
             <div key={activeCard} className="deck-card-description">
-              <h2>{lessonContent[activeCard].title}</h2>
-              <p>{lessonContent[activeCard].description}</p>
+              <h2>{lessonContent[activeCard + 3].title}</h2>
+              <p>{lessonContent[activeCard + 3].description}</p>
             </div>
           )}
         </div>
